@@ -22,13 +22,13 @@
 			<label> Link to Picture: </label>
 			<input placeholder="Link to Picture" class="form-add-control" name="picture" type="text" required="">
 			<label> Description: </label>
-			<textarea rows="4" cols="100" class="form-add-control" name="description" required=""></textarea>
+			<textarea rows="4" cols="20" class="form-add-control" name="description" required=""></textarea>
 			<label>Address:</label>
 			<div class="row">
-				<div class="col-md-5">
+				<div style="width:70%; display:inline-block">
 					<input placeholder="Street Address" class="form-add-control" name="streetAddress" required="">
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-1">
 					<input placeholder="City" class="form-add-control" name="city" required="">
 				</div>
 			</div>
