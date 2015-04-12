@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <AuctionItems>
     <AuctionItem>
         <Title>MacBook Pro 2015</Title>
         <Category>Computers</Category>
-        <Picture>http://www.w3schools.com/images/smiley.gif</Picture>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/135752-M-LO.jpg</Picture>
         <Description>Cool notebook</Description>
         <PostalAddress>
             <streetAddress>770 Eastern Parkway</streetAddress>
@@ -20,7 +21,7 @@
     <AuctionItem>
         <Title>MacBook Pro 2008</Title>
         <Category>Computers</Category>
-        <Picture>http://www.w3schools.com/images/smiley.gif</Picture>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/135749-M-LO.jpg</Picture>
         <Description>Old notebook</Description>
         <PostalAddress>
             <streetAddress>770 Eastern Parkway</streetAddress>
@@ -34,5 +35,419 @@
         <BiddingIncrements>10</BiddingIncrements>
         <EndTime>2002-09-24-06:00</EndTime>
         <ID>f3fefea6-d443-11e4-b9d6-1681e6b88ec1-26</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Apple iPhone 6 Plus 128GB (Gold)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/130570-M-LO.jpg</Picture>
+        <Description>8 chip with 64-bit architecture &amp;amp; M8 motion coprocessor</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>48</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">3</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>10</BiddingIncrements>
+        <EndTime>2015-02-02-01:01</EndTime>
+        <ID>1234</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Apple iPhone 6 128GB (Silver)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/134360-M-LO.jpg</Picture>
+        <Description>Fingerprint identity sensor built into the Home button</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2133</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">9</ReservePrice>
+        <BiddingStartPrice currency="AUD">8</BiddingStartPrice>
+        <BiddingIncrements>4</BiddingIncrements>
+        <EndTime>2016-01-20-13:00</EndTime>
+        <ID>dsa4131</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Samsung Galaxy S6 Edge 64GB (White</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/136144-M-LO.jpg</Picture>
+        <Description>Fast and powerful with outstanding battery performance</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3218</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>12</BiddingIncrements>
+        <EndTime>2015-04-17-03:00</EndTime>
+        <ID>3112as</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Samsung Galaxy S6 64GB (White)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/136157-M-LO.jpg</Picture>
+        <Description>Beautifully crafted with sculptured metal and glistening glass</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2345</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>23</BiddingIncrements>
+        <EndTime>2015-04-09-00:00</EndTime>
+        <ID>wr242134</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>HTC One M9 (Silver)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/135159-M-LO.jpg</Picture>
+        <Description>All-metal iconic design with a stunning jewellery grade finish</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3214</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">12</ReservePrice>
+        <BiddingStartPrice currency="AUD">1</BiddingStartPrice>
+        <BiddingIncrements>1</BiddingIncrements>
+        <EndTime>2015-04-23-01:01</EndTime>
+        <ID>dsg123</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Samsung Galaxy S6 32GB</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/136173-M-LO.jpg</Picture>
+        <Description>Fast and powerful with outstanding battery performance</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>4312</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">231</ReservePrice>
+        <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
+        <BiddingIncrements>21</BiddingIncrements>
+        <EndTime>2015-06-18-01:00</EndTime>
+        <ID>23aw</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Google Nexus 6 32GB (White)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/132049-M-LO.jpg</Picture>
+        <Description>Android 5.0 Lollipop</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3241</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">213</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>12</BiddingIncrements>
+        <EndTime>2015-04-30-01:59</EndTime>
+        <ID>ads213</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Google Nexus 6 32GB (Blue)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/129147-M-LO.jpg</Picture>
+        <Description>Corning Gorilla Glass 3</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>5455</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">231</ReservePrice>
+        <BiddingStartPrice currency="AUD">43</BiddingStartPrice>
+        <BiddingIncrements>2</BiddingIncrements>
+        <EndTime>2015-04-03-23:31</EndTime>
+        <ID>dfs34</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Sony Xperia Z3 (Black)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/131935-M-LO.jpg</Picture>
+        <Description>Waterproof up to 1.5m up to 30 minutes in freshwater</Description>
+        <PostalAddress>
+            <streetAddress>1223 fake st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>4121</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">321</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>21</BiddingIncrements>
+        <EndTime>2015-03-31-01:52</EndTime>
+        <ID>re235</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Sony Xperia Z3 (White)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/131928-M-LO.jpg</Picture>
+        <Description>Waterproof up to 1.5m up to 30 minutes in freshwater</Description>
+        <PostalAddress>
+            <streetAddress>1223 fake st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>4333</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">19</ReservePrice>
+        <BiddingStartPrice currency="AUD">1</BiddingStartPrice>
+        <BiddingIncrements>3</BiddingIncrements>
+        <EndTime>2015-04-16-18:06</EndTime>
+        <ID>fafr34</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Samsung Galaxy Note 4 (Black)</Title>
+        <Category>Phone</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/126031-M-LO.jpg</Picture>
+        <Description>5.7" Quad HD Super AMOLED screen</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>7643</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">43</ReservePrice>
+        <BiddingStartPrice currency="AUD">2</BiddingStartPrice>
+        <BiddingIncrements>32</BiddingIncrements>
+        <EndTime>2015-04-03-03:01</EndTime>
+        <ID>dgf32</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Lenovo A8 50 8&amp;quot; Tablet</Title>
+        <Category>Tablet</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/123802-M-LO.jpg</Picture>
+        <Description>HD Screen Resolution</Description>
+        <PostalAddress>
+            <streetAddress>213 sad st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2354</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">213</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>1</BiddingIncrements>
+        <EndTime>2015-04-23-15:01</EndTime>
+        <ID>adqwr32</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Samsung Galaxy 7&amp;quot;</Title>
+        <Category>Tablet</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/113353-M-LO.jpg</Picture>
+        <Description>Samsung Galaxy 7" Tab 2 8GB Wi-Fi-White</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2241</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>12</BiddingIncrements>
+        <EndTime>2015-04-15-00:23</EndTime>
+        <ID>aa1a1ar</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Apple iPad mini 16GB</Title>
+        <Category>Tablet</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/135723-M-LO.jpg</Picture>
+        <Description>Up to 10 hours of battery life</Description>
+        <PostalAddress>
+            <streetAddress>2133 ads st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2543</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">211</ReservePrice>
+        <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
+        <BiddingIncrements>32</BiddingIncrements>
+        <EndTime>2015-04-01-01:01</EndTime>
+        <ID>aw213qwd</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Dell Venue Pro 8&amp;quot;</Title>
+        <Category>Tablet</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/125497-M-LO.jpg</Picture>
+        <Description>Performance meets possibilities</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3142</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">2</BiddingStartPrice>
+        <BiddingIncrements>2</BiddingIncrements>
+        <EndTime>2015-04-02-00:21</EndTime>
+        <ID>fsad12asd</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>HP Stream 11-D008TU</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/128193-M-LO.jpg</Picture>
+        <Description>Unlimited OneDrive cloud storage included</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>1321</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
+        <BiddingIncrements>1</BiddingIncrements>
+        <EndTime>2015-09-15-00:33</EndTime>
+        <ID>dw231asd</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>ASUS EEEBook X205</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/126636-M-LO.jpg</Picture>
+        <Description>Intel Atom Z3735F Processor</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3424</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>21</BiddingIncrements>
+        <EndTime>2015-04-17-15:12</EndTime>
+        <ID>da231asd</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Dell Inspiron Y510130AU</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/130122-M-LO.jpg</Picture>
+        <Description>14.0 inch LED Backlit Display with Truelife and HD resolution (1366 x 768)</Description>
+        <PostalAddress>
+            <streetAddress>32 blah st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3214</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">214</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>3</BiddingIncrements>
+        <EndTime>2015-11-18-01:31</EndTime>
+        <ID>sda231a</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Lenovo G50-30</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/131010-M-LO.jpg</Picture>
+        <Description>IntelÂ® Pentiumâ¢ 3540 Processor (2MB, 2.1GHz â 2.66GHz)</Description>
+        <PostalAddress>
+            <streetAddress>231 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3533</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">321</ReservePrice>
+        <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
+        <BiddingIncrements>1</BiddingIncrements>
+        <EndTime>2015-06-10-12:03</EndTime>
+        <ID>awd214</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Acer E5-511</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/130955-M-LO.jpg</Picture>
+        <Description>500GB HDD</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2173</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">236</ReservePrice>
+        <BiddingStartPrice currency="AUD">32</BiddingStartPrice>
+        <BiddingIncrements>32</BiddingIncrements>
+        <EndTime>2015-04-07-15:21</EndTime>
+        <ID>adqw231</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Lenovo Flex 10</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/123780-M-LO.jpg</Picture>
+        <Description>Dual-mode notebook PC</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>3411</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">532</ReservePrice>
+        <BiddingStartPrice currency="AUD">321</BiddingStartPrice>
+        <BiddingIncrements>21</BiddingIncrements>
+        <EndTime>2016-03-01-12:33</EndTime>
+        <ID>saret</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>HP Pavillion X2</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/124725-M-LO.jpg</Picture>
+        <Description>2GB RAM</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>2314</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">8</ReservePrice>
+        <BiddingStartPrice currency="AUD">0</BiddingStartPrice>
+        <BiddingIncrements>231</BiddingIncrements>
+        <EndTime>2015-07-16-03:23</EndTime>
+        <ID>rdd23122</ID>
+    </AuctionItem>
+    <AuctionItem>
+        <Title>Toshiba Satellite C50D</Title>
+        <Category>Laptop</Category>
+        <Picture>https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/131925-M-LO.jpg</Picture>
+        <Description>AMD E1-6010 Dual Core processor (1.35 GHz, 1333MHz MC, 1MB L2 Cache)</Description>
+        <PostalAddress>
+            <streetAddress>123 fake st</streetAddress>
+            <city>Sydney</city>
+            <state>New South Wales</state>
+            <country>Australia</country>
+            <postalCode>1412</postalCode>
+        </PostalAddress>
+        <ReservePrice currency="AUD">123</ReservePrice>
+        <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
+        <BiddingIncrements>213</BiddingIncrements>
+        <EndTime>2015-10-08-03:21</EndTime>
+        <ID>dre13</ID>
     </AuctionItem>
 </AuctionItems>

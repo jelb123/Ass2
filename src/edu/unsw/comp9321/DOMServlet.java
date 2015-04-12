@@ -2,6 +2,9 @@ package edu.unsw.comp9321;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -38,16 +41,24 @@ public class DOMServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context = getServletContext();
 		InputSource xmlFile = new InputSource(context.getResourceAsStream("WEB-INF/AuctionItems.xml"));
-		ArrayList<ItemBean> items = null;
+		ArrayList<ItemBean> itemsList = null;
 		
 		try {
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
 			Document doc = builder.parse(xmlFile);
 			ItemHandler handler = new ItemHandler();
-			items = handler.translateToItems(doc);
+			itemsList = handler.translateToItems(doc);
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
+		}
+		List<ItemBean> items = null;
+		
+		if (itemsList.size() > 10) {
+			Collections.shuffle(itemsList);
+		    items = itemsList.subList(1, 11);
+		} else {
+			items = itemsList;
 		}
 		
 		request.setAttribute("items",items);

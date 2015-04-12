@@ -84,3 +84,30 @@ fieldset[disabled] .form-add-control {
 textarea.form-add-control {
   height: auto;
 }
+
+/* Browse items css */
+
+.col-md-2-5 {
+    width: 20%;
+}
+
+.col-md-1-5 {
+    width: 4%;
+}
+
+.col-md-3-5 {
+    width: 30%;
+}
+
+.col-md-2-5 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 992px) {
+    .col-md-2-5 {
+        float: left;
+    }
+}

@@ -6,7 +6,7 @@
         <div class="navbar-collapse collapse">
 	            <form method="post" action="search.jsp" class="navbar-form navbar-left">
 		            <div class="form-group">
-		                <input placeholder="Search for user" class="form-control" name="search" type="text" />
+		                <input placeholder="Search for item" class="form-control" name="search" type="text" />
 		            </div>
 		            <input type="submit" name="Search" value="Search" class="btn btn-success" />
 		            <a href="advancedSearch.jsp" class="btn btn-link btn-sm">Advanced Search</a>

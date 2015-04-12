@@ -12,18 +12,21 @@
 <body>
 	<jsp:include page="includes/header.jsp" />
 	
-	<c:forEach var="item" items="${items}">
-   	<tr>
-   		<td>
-   			${item.title}
-   		</td>
-   		<td>
-   		</td>
-   		<td>
-   		</td>
-   		<td>
-   		</td>
-   	</tr>			
+	<div class="row">
+	<c:forEach var="item" items="${items}" varStatus="i">
+		<c:if test="${i.index % 5 == 0}">
+			</div>
+			<div class="row">
+		</c:if>
+   			<center>
+   				<div class="col-md-2-5" style="float:left;">
+   					<a href="?item=${item.title}">
+   						<img class="img-rounded" src="${item.picture}">
+   						<h5>${item.title}</h5>
+   					</a>
+   				</div>
+   			</center>
    	</c:forEach>
+	</div>
 </body>
 </html>
