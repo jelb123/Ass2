@@ -37,7 +37,7 @@ public class DOMServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context = getServletContext();
-		InputSource xmlFile = new InputSource(context.getResourceAsStream("/WEB-INF/AuctionItems.xml"));
+		InputSource xmlFile = new InputSource(context.getResourceAsStream("WEB-INF/AuctionItems.xml"));
 		ArrayList<ItemBean> items = null;
 		
 		try {

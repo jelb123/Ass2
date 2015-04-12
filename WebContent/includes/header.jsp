@@ -1,7 +1,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="welcome.jsp">Auction!</a>
+        <div class="navbar-header navbar-brand">
+            Auction!
         </div>
         <div class="navbar-collapse collapse">
 	            <form method="post" action="search.jsp" class="navbar-form navbar-left">
