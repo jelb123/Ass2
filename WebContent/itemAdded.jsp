@@ -10,9 +10,13 @@
 </head>
 <body>
 	<jsp:include page="includes/header.jsp" />
-	
-	<h3> Your Item has been added</h3>
-	<a href="." class="btn btn-success"> Back to Homepage </a>
-
+	<div class="container">
+		<center>
+			<h3> Your Item has <br> been added</h3>
+			<p></p>
+			<a href="addItem.jsp" class="btn btn-primary"> Add Another Item </a>
+			<a href="." class="btn btn-success"> Back to Homepage </a>
+		</center>
+	</div>
 </body>
 </html>
