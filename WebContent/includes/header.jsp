@@ -4,11 +4,11 @@
             Auction!
         </div></a>
         <div class="navbar-collapse collapse">
-	            <form method="post" action="search.jsp" class="navbar-form navbar-left">
+	            <form method="get" action="./Search" class="navbar-form navbar-left">
 		            <div class="form-group">
-		                <input placeholder="Search for item" class="form-control" name="search" type="text" />
+		                <input placeholder="Search for item" class="form-control" name="name" type="text" />
 		            </div>
-		            <input type="submit" name="Search" value="Search" class="btn btn-success" />
+		            <input type="submit" value="Search" class="btn btn-success" />
 		            <a href="advancedSearch.jsp" class="btn btn-link btn-sm">Advanced Search</a>
 	            </form>
 	            <div class="navbar-right navbar-secondary-form">

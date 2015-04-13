@@ -10,5 +10,27 @@
 </head>
 <body>
 	<jsp:include page="includes/header.jsp" />
+	
+	<div class="container">
+		<center>
+			<h3><b> Advanced Search </b></h3>
+		</center>
+		<form method="get" action="./Search" class="form-add">
+			<label> Name: </label>
+			<input placeholder="Name" class="form-add-control" name="name" type="text">
+			<label> Category: </label>
+			<input placeholder="Category" class="form-add-control" name="category" type="text">
+			<label> Description: </label>
+			<input placeholder="Description" class="form-add-control" name="description" type="text">
+			<div class="row">
+		    	<div class="col-sm-8">
+		       		<label></label>
+		       	</div>
+		       	<div class="col-sm-4">
+		        	<input type="submit" value="Search" class="btn btn-primary">
+		       	</div>
+		   </div>
+		</form>
+	</div>
 </body>
 </html>
