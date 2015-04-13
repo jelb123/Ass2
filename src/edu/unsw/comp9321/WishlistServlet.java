@@ -67,7 +67,8 @@ public class WishlistServlet extends HttpServlet {
 
 			response.addCookie(ck);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/welcome.jsp");
+			request.setAttribute("msg", "Item added to Wishlist");
+			RequestDispatcher rd = request.getRequestDispatcher("/itemAdded.jsp");
 			rd.forward(request, response);
 			
 		} catch (Exception e) {

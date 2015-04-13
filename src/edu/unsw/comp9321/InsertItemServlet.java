@@ -265,6 +265,7 @@ public class InsertItemServlet extends HttpServlet {
 			transformer.transform(source, result);
 			System.out.println("File saved to : " + outFile);
 			
+			request.setAttribute("msg", "Your Item has <br> been added");
 			RequestDispatcher rd = request.getRequestDispatcher("/itemAdded.jsp");
 			rd.forward(request, response);
 			

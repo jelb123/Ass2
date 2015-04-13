@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Item Added!</title>
+<title>Success!</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 <link rel="stylesheet" href="custom.css" />
 </head>
@@ -12,9 +12,8 @@
 	<jsp:include page="includes/header.jsp" />
 	<div class="container">
 		<center>
-			<h3> Your Item has <br> been added</h3>
+			<h3> ${msg}</h3>
 			<p></p>
-			<a href="addItem.jsp" class="btn btn-primary"> Add Another Item </a>
 			<a href="." class="btn btn-success"> Back to Homepage </a>
 		</center>
 	</div>
