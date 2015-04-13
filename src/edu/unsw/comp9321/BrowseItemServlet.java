@@ -59,7 +59,6 @@ public class BrowseItemServlet extends HttpServlet {
 		//	itemsList = (ArrayList<ItemBean>) session.getAttribute("itemsList");
 		//}
 		
-		List<ItemBean> items = itemsList;
 		ItemBean item = new ItemBean();
 		String idQuery = request.getParameter("item");
 		if (idQuery == null || Integer.parseInt(idQuery)+1 > itemsList.size() || Integer.parseInt(idQuery) < 0){
@@ -92,7 +91,7 @@ public class BrowseItemServlet extends HttpServlet {
 		
 		} else {
 			int id = Integer.parseInt(idQuery);
-			
+			id--;
 			System.out.println("ID: " + id + " idQuery: " + idQuery);
 			item = itemsList.get(id);
 		}
