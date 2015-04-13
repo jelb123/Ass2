@@ -44,13 +44,14 @@ public class DOMServlet extends HttpServlet {
 		InputSource xmlFile = new InputSource(context.getResourceAsStream("WEB-INF/AuctionItems.xml"));
 		ArrayList<ItemBean> itemsList = null;
 		
-		
+		HttpSession session = request.getSession();
 		try {
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
 			Document doc = builder.parse(xmlFile);
 			ItemHandler handler = new ItemHandler();
 			itemsList = handler.translateToItems(doc);
+			session.setAttribute("itemsList", itemsList);
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
 		}

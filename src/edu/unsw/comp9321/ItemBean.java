@@ -1,8 +1,9 @@
 package edu.unsw.comp9321;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class ItemBean {
+public class ItemBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String title;
 	private String category;
 	private String picture;

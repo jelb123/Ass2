@@ -25,10 +25,11 @@
    						<h5>${item.title}</h5>
    					</a>
    					<div>
-			                <a class="btn btn-primary dropdown-toggle" href="./Wishlist?addItem=${item.id}" style="padding-bottom: 8px">
-			                	Add to Wishlist
-			                	<span class="glyphicon glyphicon-shopping-cart"></span>
-			                </a>
+		                <form method="post" action="./Wishlist">
+		                	<input type="hidden" name="wishListId" value="${item.id}">
+		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
+		                </form>
+			                
 			        </div>
    				</div>
    			</center>

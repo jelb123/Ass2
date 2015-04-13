@@ -1,6 +1,9 @@
 package edu.unsw.comp9321;
 
-public class AddressBean {
+import java.io.Serializable;
+
+public class AddressBean implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String streetAddress;
 	private String city;
 	private String state;

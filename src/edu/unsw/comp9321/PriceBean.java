@@ -1,6 +1,9 @@
 package edu.unsw.comp9321;
 
-public class PriceBean {
+import java.io.Serializable;
+
+public class PriceBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private float price;
 	private String currency;
 	

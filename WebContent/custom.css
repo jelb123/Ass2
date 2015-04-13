@@ -17,6 +17,17 @@ body {
 	margin-top:10px;
 }
 
+/* Display Items */
+.details-column {
+    margin-left: 20px;
+}
+
+.tab-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 /* For Add Item Page*/
 .form-add {
   max-width: 500px;
