@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -114,6 +115,7 @@ public class InsertItemServlet extends HttpServlet {
 			Document doc = builder.parse(xmlFile);
 			ItemHandler handler = new ItemHandler();
 			itemsList = handler.translateToItems(doc);
+			ItemBean iteml = new ItemBean();
 			
 			int tempId = itemsList.size();
 			tempId++;
@@ -125,44 +127,74 @@ public class InsertItemServlet extends HttpServlet {
 			System.out.println("Title: " + itemsList.get(itemsList.size()-1).getTitle());
 			System.out.println("Id: " + id);
 			
-			// Creating Item Tree
+	//////// Creating Item Tree
 			Node auctionItems = doc.getFirstChild();
 			Node item = doc.createElement("AuctionItem");
 			
+		//// Set title
 			Node itemTitle = doc.createElement("Title");
 			itemTitle.appendChild(doc.createTextNode(name));
 			item.appendChild(itemTitle);
+			iteml.setTitle(name);
+		////
 			
+		////Set category
 			Node itemCategory = doc.createElement("Category");
 			itemCategory.appendChild(doc.createTextNode(category));
 			item.appendChild(itemCategory);
-			
+			iteml.setCategory(category);
+		////
+		
+		////Set picture url
 			Node itemPicture = doc.createElement("Picture");
 			itemPicture.appendChild(doc.createTextNode(picture));
 			item.appendChild(itemPicture);
+			iteml.setPicture(picture);
+		////
 			
+		////Set description
 			Node itemDescription = doc.createElement("Description");
 			itemDescription.appendChild(doc.createTextNode(description));
 			item.appendChild(itemDescription);
+			iteml.setDescription(description);
+		////
 			
+		//// Set postal address
+			AddressBean addressBean = new AddressBean();
 			Node itemPostal = doc.createElement("PostalAddress");
+			
 			Node itemStreet = doc.createElement("streetAddress");
 			itemStreet.appendChild(doc.createTextNode(streetAddress));
 			itemPostal.appendChild(itemStreet);
+			addressBean.setStreetAddress(streetAddress);
+			
 			Node itemCity = doc.createElement("city");
 			itemCity.appendChild(doc.createTextNode(city));
 			itemPostal.appendChild(itemCity);
+			addressBean.setCity(city);
+			
 			Node itemState = doc.createElement("state");
 			itemState.appendChild(doc.createTextNode(state));
 			itemPostal.appendChild(itemState);
+			addressBean.setState(state);
+			
 			Node itemCountry = doc.createElement("country");
 			itemCountry.appendChild(doc.createTextNode(country));
 			itemPostal.appendChild(itemCountry);
+			addressBean.setCountry(country);
+			
 			Node itemPostalCode = doc.createElement("postalCode");
 			itemPostalCode.appendChild(doc.createTextNode(Integer.toString(postCode)));
 			itemPostal.appendChild(itemPostalCode);
 			item.appendChild(itemPostal);
+			addressBean.setPostCode(postCode);
 			
+			iteml.setAddress(addressBean);
+		////
+			
+		//// Set Res price
+			PriceBean resPriceBean = new PriceBean();
+
 			Node itemResPrice = doc.createElement("ReservePrice");
 			NamedNodeMap resPriceAttr = itemResPrice.getAttributes();
 			Attr resCurrencyAttr = doc.createAttribute("currency");
@@ -170,6 +202,14 @@ public class InsertItemServlet extends HttpServlet {
 			resPriceAttr.setNamedItem(resCurrencyAttr);
 			itemResPrice.appendChild(doc.createTextNode(Integer.toString(resPrice)));
 			item.appendChild(itemResPrice);
+			
+			resPriceBean.setCurrency(resCurrency);
+			resPriceBean.setPrice(resPrice);
+			iteml.setReservePrice(resPriceBean);
+		////
+			
+		//// Set start price
+			PriceBean startPriceBean = new PriceBean();
 			
 			Node itemStartPrice = doc.createElement("BiddingStartPrice");
 			NamedNodeMap startPriceAttr = itemStartPrice.getAttributes();
@@ -179,19 +219,37 @@ public class InsertItemServlet extends HttpServlet {
 			itemStartPrice.appendChild(doc.createTextNode(Integer.toString(startPrice)));
 			item.appendChild(itemStartPrice);
 			
+			startPriceBean.setCurrency(startCurrency);
+			startPriceBean.setPrice(startPrice);
+			iteml.setStartPrice(startPriceBean);
+		////
+			
+		//// Set bid inc
 			Node itemBidInc = doc.createElement("BiddingIncrements");
 			itemBidInc.appendChild(doc.createTextNode(Integer.toString(bidIncrement)));
 			item.appendChild(itemBidInc);
-			
+			iteml.setBidIncrements(bidIncrement);
+		////
+		
+		//// Set end time
 			Node itemEndTime = doc.createElement("EndTime");
 			itemEndTime.appendChild(doc.createTextNode(endDate+"-"+endTime));
 			item.appendChild(itemEndTime);
-			
+			iteml.setEndTime(endDate+"-"+endTime);
+		////	
+		
+		////Set Id
 			Node itemID = doc.createElement("ID");
 			itemID.appendChild(doc.createTextNode(id));
 			item.appendChild(itemID);
-			
+			iteml.setId(id);
+		////
+		
+		  //Append to tree/list
 			auctionItems.appendChild(item);
+			itemsList.add(iteml);
+		  //
+	////////
 			
 			//Write the content into XML file:
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -209,6 +267,7 @@ public class InsertItemServlet extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/itemAdded.jsp");
 			rd.forward(request, response);
+			
 			
 		} catch (Exception e) {
 			logger.severe(e.getMessage());

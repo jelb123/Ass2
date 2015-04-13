@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -43,6 +44,7 @@ public class DOMServlet extends HttpServlet {
 		InputSource xmlFile = new InputSource(context.getResourceAsStream("WEB-INF/AuctionItems.xml"));
 		ArrayList<ItemBean> itemsList = null;
 		
+		
 		try {
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
@@ -52,6 +54,8 @@ public class DOMServlet extends HttpServlet {
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
 		}
+
+		
 		List<ItemBean> items = null;
 		
 		if (itemsList.size() > 10) {

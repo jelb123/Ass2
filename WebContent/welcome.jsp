@@ -19,11 +19,17 @@
 			<div class="row">
 		</c:if>
    			<center>
-   				<div class="col-md-2-5" style="float:left;">
-   					<a href="?item=${item.id}">
+   				<div class="col-md-2-5" style="float:left; padding-bottom: 8px;">
+   					<a href="./BrowseItem?item=${item.id}">
    						<img class="img-rounded" src="${item.picture}">
    						<h5>${item.title}</h5>
    					</a>
+   					<div>
+			                <a class="btn btn-primary dropdown-toggle" href="./Wishlist?addItem=${item.id}" style="padding-bottom: 8px">
+			                	Add to Wishlist
+			                	<span class="glyphicon glyphicon-shopping-cart"></span>
+			                </a>
+			        </div>
    				</div>
    			</center>
    	</c:forEach>

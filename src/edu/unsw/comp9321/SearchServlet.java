@@ -6,12 +6,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -41,6 +43,7 @@ public class SearchServlet extends HttpServlet {
 		InputSource xmlFile = new InputSource(context.getResourceAsStream("WEB-INF/AuctionItems.xml"));
 		ArrayList<ItemBean> itemsList = null;
 		
+
 		try {
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
@@ -50,42 +53,53 @@ public class SearchServlet extends HttpServlet {
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
 		}
+
+		
 		List<ItemBean> items = new ArrayList<ItemBean>();
 		
 		String nameQuery = request.getParameter("name");
 		String categoryQuery = request.getParameter("category");
 		String descriptionQuery = request.getParameter("description");
 		
-		
 		System.out.println("Name: " + nameQuery);
 		System.out.println("Category: " + categoryQuery);
 		System.out.println("Description: " + descriptionQuery);
 		
 		for (int i = 0;i < itemsList.size(); i++) {
+			ItemBean curItem = itemsList.get(i);
+			
 			boolean nameMatch = true;
 			boolean categoryMatch = true;
 			boolean descriptionMatch = true;
 			
-			if (!(nameQuery.isEmpty() || nameQuery.equals(null))) {
-				if(!nameQuery.equalsIgnoreCase(itemsList.get(i).getTitle())) {
+			if (!(nameQuery == null || nameQuery.isEmpty())) {
+				if(!curItem.getTitle().toLowerCase().contains(nameQuery.toLowerCase())) {
 					nameMatch = false;
 				}
+				
 			}
-			if (!(categoryQuery.isEmpty() || categoryQuery.equals(null))) {
-				if(!categoryQuery.equalsIgnoreCase(itemsList.get(i).getCategory())) {
+			if (!(categoryQuery == null || categoryQuery.isEmpty())) {
+				if(!curItem.getCategory().toLowerCase().contains(categoryQuery.toLowerCase())) {
 					categoryMatch = false;
 				}
 			}
-			if (!(descriptionQuery.isEmpty() || descriptionQuery.equals(null))) {
-				if(!descriptionQuery.equalsIgnoreCase(itemsList.get(i).getDescription())) {
+			if (!(descriptionQuery == null || descriptionQuery.isEmpty())) {
+				System.out.println("ITS IN HERE");
+				if(!curItem.getDescription().toLowerCase().contains(descriptionQuery.toLowerCase())) {
 					descriptionMatch = false;
 				}
 			}
 			
+			System.out.println("name:" + nameMatch + categoryMatch + descriptionMatch);
+			
 			if (nameMatch == true && categoryMatch == true && descriptionMatch == true){
-				items.add(itemsList.get(i));
+				items.add(curItem);
 			}
 		}
+		
+		request.setAttribute("items",items);
+		RequestDispatcher rd = request.getRequestDispatcher("/welcome.jsp");
+		rd.forward(request, response);
 	
 	}
 
