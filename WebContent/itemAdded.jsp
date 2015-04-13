@@ -4,11 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Item Added!</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 <link rel="stylesheet" href="custom.css" />
 </head>
 <body>
 	<jsp:include page="includes/header.jsp" />
+	
+	<h3> Your Item has been added</h3>
+	<a href="." class="btn btn-success"> Back to Homepage </a>
+
 </body>
 </html>

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -106,14 +107,22 @@ public class InsertItemServlet extends HttpServlet {
 			ServletContext context = getServletContext();
 			String outFile = context.getRealPath("/")+"WEB-INF/AuctionItems.xml";
 			InputSource xmlFile = new InputSource(context.getResourceAsStream("/WEB-INF/AuctionItems.xml"));
+			ArrayList<ItemBean> itemsList = null;
 			
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			Document doc = docBuilder.parse(xmlFile);
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document doc = builder.parse(xmlFile);
+			ItemHandler handler = new ItemHandler();
+			itemsList = handler.translateToItems(doc);
 			
-			NodeList nList = doc.getElementsByTagName("AuctionItem");
-			Element idElement = (Element) nList.item(nList.getLength()-1);
-			String id = idElement.getElementsByTagName("ID");
+			int tempId = itemsList.size();
+			tempId++;
+			
+			String id = Integer.toString(tempId);
+			
+			
+			
+			System.out.println("Title: " + itemsList.get(itemsList.size()-1).getTitle());
 			System.out.println("Id: " + id);
 			
 			// Creating Item Tree
@@ -178,11 +187,11 @@ public class InsertItemServlet extends HttpServlet {
 			itemEndTime.appendChild(doc.createTextNode(endDate+"-"+endTime));
 			item.appendChild(itemEndTime);
 			
-			//Node itemID = doc.createElement("ID");
-			//itemID.appendChild(doc.createTextNode(id));
-			//item.appendChild(itemID);
+			Node itemID = doc.createElement("ID");
+			itemID.appendChild(doc.createTextNode(id));
+			item.appendChild(itemID);
 			
-			//auctionItems.appendChild(item);
+			auctionItems.appendChild(item);
 			
 			//Write the content into XML file:
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();

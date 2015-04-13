@@ -20,7 +20,7 @@
 		</c:if>
    			<center>
    				<div class="col-md-2-5" style="float:left;">
-   					<a href="?item=${item.title}">
+   					<a href="?item=${item.id}">
    						<img class="img-rounded" src="${item.picture}">
    						<h5>${item.title}</h5>
    					</a>
