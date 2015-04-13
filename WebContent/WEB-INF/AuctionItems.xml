@@ -16,7 +16,7 @@
         <BiddingStartPrice currency="AUD">100.00</BiddingStartPrice>
         <BiddingIncrements>10</BiddingIncrements>
         <EndTime>2002-09-24-06:00</EndTime>
-        <ID>faced800-d358-11e4-a715-0002a5d5c51b-26</ID>
+        <ID>1</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>MacBook Pro 2008</Title>
@@ -34,7 +34,7 @@
         <BiddingStartPrice currency="AUD">100.00</BiddingStartPrice>
         <BiddingIncrements>10</BiddingIncrements>
         <EndTime>2002-09-24-06:00</EndTime>
-        <ID>f3fefea6-d443-11e4-b9d6-1681e6b88ec1-26</ID>
+        <ID>2</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Apple iPhone 6 Plus 128GB (Gold)</Title>
@@ -52,7 +52,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>10</BiddingIncrements>
         <EndTime>2015-02-02-01:01</EndTime>
-        <ID>1234</ID>
+        <ID>3</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Apple iPhone 6 128GB (Silver)</Title>
@@ -70,7 +70,7 @@
         <BiddingStartPrice currency="AUD">8</BiddingStartPrice>
         <BiddingIncrements>4</BiddingIncrements>
         <EndTime>2016-01-20-13:00</EndTime>
-        <ID>dsa4131</ID>
+        <ID>4</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Samsung Galaxy S6 Edge 64GB (White</Title>
@@ -88,7 +88,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>12</BiddingIncrements>
         <EndTime>2015-04-17-03:00</EndTime>
-        <ID>3112as</ID>
+        <ID>5</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Samsung Galaxy S6 64GB (White)</Title>
@@ -106,7 +106,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>23</BiddingIncrements>
         <EndTime>2015-04-09-00:00</EndTime>
-        <ID>wr242134</ID>
+        <ID>6</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>HTC One M9 (Silver)</Title>
@@ -124,7 +124,7 @@
         <BiddingStartPrice currency="AUD">1</BiddingStartPrice>
         <BiddingIncrements>1</BiddingIncrements>
         <EndTime>2015-04-23-01:01</EndTime>
-        <ID>dsg123</ID>
+        <ID>7</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Samsung Galaxy S6 32GB</Title>
@@ -142,7 +142,7 @@
         <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
         <BiddingIncrements>21</BiddingIncrements>
         <EndTime>2015-06-18-01:00</EndTime>
-        <ID>23aw</ID>
+        <ID>8</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Google Nexus 6 32GB (White)</Title>
@@ -160,7 +160,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>12</BiddingIncrements>
         <EndTime>2015-04-30-01:59</EndTime>
-        <ID>ads213</ID>
+        <ID>9</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Google Nexus 6 32GB (Blue)</Title>
@@ -178,7 +178,7 @@
         <BiddingStartPrice currency="AUD">43</BiddingStartPrice>
         <BiddingIncrements>2</BiddingIncrements>
         <EndTime>2015-04-03-23:31</EndTime>
-        <ID>dfs34</ID>
+        <ID>10</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Sony Xperia Z3 (Black)</Title>
@@ -196,7 +196,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>21</BiddingIncrements>
         <EndTime>2015-03-31-01:52</EndTime>
-        <ID>re235</ID>
+        <ID>11</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Sony Xperia Z3 (White)</Title>
@@ -214,7 +214,7 @@
         <BiddingStartPrice currency="AUD">1</BiddingStartPrice>
         <BiddingIncrements>3</BiddingIncrements>
         <EndTime>2015-04-16-18:06</EndTime>
-        <ID>fafr34</ID>
+        <ID>12</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Samsung Galaxy Note 4 (Black)</Title>
@@ -232,7 +232,7 @@
         <BiddingStartPrice currency="AUD">2</BiddingStartPrice>
         <BiddingIncrements>32</BiddingIncrements>
         <EndTime>2015-04-03-03:01</EndTime>
-        <ID>dgf32</ID>
+        <ID>13</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Lenovo A8 50 8&amp;quot; Tablet</Title>
@@ -250,7 +250,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>1</BiddingIncrements>
         <EndTime>2015-04-23-15:01</EndTime>
-        <ID>adqwr32</ID>
+        <ID>14</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Samsung Galaxy 7&amp;quot;</Title>
@@ -268,7 +268,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>12</BiddingIncrements>
         <EndTime>2015-04-15-00:23</EndTime>
-        <ID>aa1a1ar</ID>
+        <ID>15</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Apple iPad mini 16GB</Title>
@@ -286,7 +286,7 @@
         <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
         <BiddingIncrements>32</BiddingIncrements>
         <EndTime>2015-04-01-01:01</EndTime>
-        <ID>aw213qwd</ID>
+        <ID>16</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Dell Venue Pro 8&amp;quot;</Title>
@@ -304,7 +304,7 @@
         <BiddingStartPrice currency="AUD">2</BiddingStartPrice>
         <BiddingIncrements>2</BiddingIncrements>
         <EndTime>2015-04-02-00:21</EndTime>
-        <ID>fsad12asd</ID>
+        <ID>17</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>HP Stream 11-D008TU</Title>
@@ -322,7 +322,7 @@
         <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
         <BiddingIncrements>1</BiddingIncrements>
         <EndTime>2015-09-15-00:33</EndTime>
-        <ID>dw231asd</ID>
+        <ID>18</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>ASUS EEEBook X205</Title>
@@ -340,7 +340,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>21</BiddingIncrements>
         <EndTime>2015-04-17-15:12</EndTime>
-        <ID>da231asd</ID>
+        <ID>19</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Dell Inspiron Y510130AU</Title>
@@ -358,7 +358,7 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>3</BiddingIncrements>
         <EndTime>2015-11-18-01:31</EndTime>
-        <ID>sda231a</ID>
+        <ID>20</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Lenovo G50-30</Title>
@@ -376,7 +376,7 @@
         <BiddingStartPrice currency="AUD">21</BiddingStartPrice>
         <BiddingIncrements>1</BiddingIncrements>
         <EndTime>2015-06-10-12:03</EndTime>
-        <ID>awd214</ID>
+        <ID>21</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Acer E5-511</Title>
@@ -394,7 +394,7 @@
         <BiddingStartPrice currency="AUD">32</BiddingStartPrice>
         <BiddingIncrements>32</BiddingIncrements>
         <EndTime>2015-04-07-15:21</EndTime>
-        <ID>adqw231</ID>
+        <ID>22</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Lenovo Flex 10</Title>
@@ -412,7 +412,7 @@
         <BiddingStartPrice currency="AUD">321</BiddingStartPrice>
         <BiddingIncrements>21</BiddingIncrements>
         <EndTime>2016-03-01-12:33</EndTime>
-        <ID>saret</ID>
+        <ID>23</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>HP Pavillion X2</Title>
@@ -430,7 +430,7 @@
         <BiddingStartPrice currency="AUD">0</BiddingStartPrice>
         <BiddingIncrements>231</BiddingIncrements>
         <EndTime>2015-07-16-03:23</EndTime>
-        <ID>rdd23122</ID>
+        <ID>24</ID>
     </AuctionItem>
     <AuctionItem>
         <Title>Toshiba Satellite C50D</Title>
@@ -448,6 +448,6 @@
         <BiddingStartPrice currency="AUD">12</BiddingStartPrice>
         <BiddingIncrements>213</BiddingIncrements>
         <EndTime>2015-10-08-03:21</EndTime>
-        <ID>dre13</ID>
+        <ID>25</ID>
     </AuctionItem>
 </AuctionItems>

@@ -98,10 +98,6 @@
 		    	<input class="form-add-control" type="date" name="endDate" style="float:left;">
 		    	<input class="form-add-control" type="time" name="endTime" style="float:left;">
 		    </div>
-		    <div class="row">
-		    	<label class="col-md-3">ID:</label>
-		    	<input class="form-add-control" style="float:left" name="id" type="text" required="">
-		    </div>
 		    <p></p>
 		    <div class="row">
 		    	<div class="col-sm-8">
