@@ -13,7 +13,7 @@
 	            </form>
 	            <div class="navbar-right navbar-secondary-form">
 	            	<a href="addItem.jsp" class="btn btn-primary btn-sm">Add Item</a>
-	            	<a href="wishlist.jsp" class="btn btn-primary btn-sm">Wishlist</a>
+	            	<a href="./Wishlist" class="btn btn-primary btn-sm">Wishlist</a>
 	            </div>
         </div>
         

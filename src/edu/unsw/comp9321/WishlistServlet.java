@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,6 +15,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 
 /**
  * Servlet implementation class WishlistServlet
@@ -35,7 +41,50 @@ public class WishlistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String id = request.getParameter("wishListId");
+		
+		Cookie[] cookies = request.getCookies();
+		Cookie ck = null;
+		for (Cookie cookie : cookies) {
+			if("wishListCk".equals(cookie.getName())) {
+				ck = cookie;
+			}
+		}
+		
+		ServletContext context = getServletContext();
+		InputSource xmlFile = new InputSource(context.getResourceAsStream("WEB-INF/AuctionItems.xml"));
+		ArrayList<ItemBean> itemsList = null;
+		
+		try {
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document doc = builder.parse(xmlFile);
+			ItemHandler handler = new ItemHandler();
+			itemsList = handler.translateToItems(doc);
+		} catch (Exception e) {
+			logger.severe(e.getMessage());
+		}
+		
+		String msg = "";
+		List<ItemBean> items = new ArrayList<ItemBean>();;
+		
+		if (ck == null || ck.getValue().isEmpty()) {
+			msg = "Your wishlist is empty";
+		} else {
+			String[] ckValues = ck.getValue().split(":");
+			System.out.println(itemsList.size());
+			for (int i = 0; i < ckValues.length; i++) {
+				items.add(itemsList.get(Integer.parseInt(ckValues[i])));
+			}
+		}
+		
+		request.setAttribute("items",items);
+		
+		
+		
+		request.setAttribute("msg", msg);
+		RequestDispatcher rd = request.getRequestDispatcher("/displayWishlist.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -58,7 +107,11 @@ public class WishlistServlet extends HttpServlet {
 				if (ck.getValue().isEmpty()) {
 					ckValue = id;
 				} else {
-					ckValue = ck.getValue() + ":" + id;
+					if(!ck.getValue().contains(id)) {
+						ckValue = ck.getValue() + ":" + id;
+					} else {
+						ckValue = ck.getValue();
+					}
 				}
 				ck.setValue(ckValue);
 			} else {

@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Auction!</title>
+<title>Your Wishlist!</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 <link rel="stylesheet" href="custom.css" />
 </head>
 <body>
 	<jsp:include page="includes/header.jsp" />
+	<center><h2 style="color:red"> ${msg}</h2></center>
 	
 	<div class="row">
 	<c:forEach var="item" items="${items}" varStatus="i">
@@ -25,9 +26,9 @@
    						<h5>${item.title}</h5>
    					</a>
    					<div>
-		                <form method="post" action="./Wishlist">
-		                	<input type="hidden" name="wishListId" value="${item.id-1}">
-		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
+		                <form method="post" action="./removeItem">
+		                	<input type="hidden" name="wishListId" value="${item.id}">
+		                	<input type="submit" value="Remove from Wishlist" class="btn btn-primary">
 		                </form>
 			                
 			        </div>
@@ -36,4 +37,3 @@
    	</c:forEach>
 	</div>
 </body>
-</html>
