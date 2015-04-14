@@ -26,7 +26,7 @@
    					</a>
    					<div>
 		                <form method="post" action="./Wishlist">
-		                	<input type="hidden" name="wishListId" value="${item.id-1}">
+		                	<input type="hidden" name="wishListId" value="${item.id}">
 		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
 		                </form>
 			                

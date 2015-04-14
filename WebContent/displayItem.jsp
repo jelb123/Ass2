@@ -13,16 +13,24 @@
 	<jsp:include page="includes/header.jsp" />
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3" style="float: left;">
+			<div class="col-md-3" style="float: left; margin-left: -10px">
 				<center><h2><b>${item.title}</b></h2></center>
-				<img src="${item.picture}">
 			</div>
-			<div class="col-md-9">
-	            <ul class="nav nav-tabs">
-	                <li class="active">
-	                    About
-	               	</li>
-	            </ul>
+		</div>
+		<div class="row">
+			<div class="col-md-3" style="float: left; margin-left: -10px">
+				<img src="${item.picture}">
+				<div style="margin-left:25px; padding-top: 10px;">
+                	<center>
+		                <form method="post" action="./Wishlist">
+		                	<input type="hidden" name="wishListId" value="${item.id}">
+		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
+		                </form>
+		            </center>
+		        </div>
+			</div>
+			<div class="col-md-9" style="margin-left: 10px;">
+	            
 	            <div class="tab-content col-md-12">
 	                <div class="tab-pane fade in active">
 	                    <div class="col-md-6">

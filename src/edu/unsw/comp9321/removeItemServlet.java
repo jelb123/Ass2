@@ -56,7 +56,7 @@ public class removeItemServlet extends HttpServlet {
 			if (!ck.getValue().isEmpty()) {
 				ckArrayList = new ArrayList<String>(Arrays.asList(ck.getValue().split(":")));
 				System.out.println(ckArrayList.indexOf(id) + " ");
-				ckArrayList.remove(ckArrayList.indexOf(id)+2);
+				ckArrayList.remove(ckArrayList.indexOf(id));
 				
 				ckValue = "";
 
@@ -65,7 +65,7 @@ public class removeItemServlet extends HttpServlet {
 				    ckValue += s + ":";
 				}
 				
-				ckValue = ckValue.substring(0,ckValue.length()-1);
+				ckValue = ckValue.substring(0,Math.max(0, ckValue.length()-1));
 				
 			}
 			ck.setValue(ckValue);
@@ -74,7 +74,7 @@ public class removeItemServlet extends HttpServlet {
 		
 		
 		
-		request.setAttribute("msg", "Item removed from Wishlist");
+		request.setAttribute("msg", "Item has been removed from Wishlist");
 		RequestDispatcher rd = request.getRequestDispatcher("/itemAdded.jsp");
 		rd.forward(request, response);
 	}

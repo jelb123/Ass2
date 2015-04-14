@@ -61,7 +61,8 @@ public class BrowseItemServlet extends HttpServlet {
 		
 		ItemBean item = new ItemBean();
 		String idQuery = request.getParameter("item");
-		if (idQuery == null || Integer.parseInt(idQuery)+1 > itemsList.size() || Integer.parseInt(idQuery) < 0){
+		System.out.println(" idQuery: " + idQuery);
+		if (idQuery == null || Integer.parseInt(idQuery) > itemsList.size() || Integer.parseInt(idQuery) <= 0){
 			
 			item.setTitle("No Item Found");
 			item.setCategory("");
@@ -92,7 +93,6 @@ public class BrowseItemServlet extends HttpServlet {
 		} else {
 			int id = Integer.parseInt(idQuery);
 			id--;
-			System.out.println("ID: " + id + " idQuery: " + idQuery);
 			item = itemsList.get(id);
 		}
 		

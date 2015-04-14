@@ -74,7 +74,12 @@ public class WishlistServlet extends HttpServlet {
 			String[] ckValues = ck.getValue().split(":");
 			System.out.println(itemsList.size());
 			for (int i = 0; i < ckValues.length; i++) {
-				items.add(itemsList.get(Integer.parseInt(ckValues[i])));
+				for (ItemBean item: itemsList) {
+					if (item.getId().equals(ckValues[i])) {
+						items.add(item);
+					}
+				}
+				
 			}
 		}
 		
