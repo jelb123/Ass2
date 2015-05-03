@@ -20,6 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import com.enterprise.beans.ItemBean;
+
 /**
  * Servlet implementation class SearchServlet
  */

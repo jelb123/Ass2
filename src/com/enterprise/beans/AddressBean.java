@@ -1,4 +1,4 @@
-package edu.unsw.comp9321;
+package com.enterprise.beans;
 
 import java.io.Serializable;
 

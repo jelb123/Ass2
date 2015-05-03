@@ -8,6 +8,10 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.enterprise.beans.AddressBean;
+import com.enterprise.beans.ItemBean;
+import com.enterprise.beans.PriceBean;
+
 public class ItemHandler {
 	Logger logger = Logger.getLogger(this.getClass().getName());
 	public ItemHandler() {

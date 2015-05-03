@@ -35,6 +35,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import com.enterprise.beans.AddressBean;
+import com.enterprise.beans.ItemBean;
+import com.enterprise.beans.PriceBean;
+
 /**
  * Servlet implementation class InsertItemServlet
  */

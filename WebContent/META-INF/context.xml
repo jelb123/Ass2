@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/Ass1" docBase="Ass1" debug="1" reloadable="true" crossContext="true">
+
+   <Resource name="jdbc/auction" auth="Container"
+          type="javax.sql.DataSource" username="user" password="123"
+          driverClassName="org.apache.derby.jdbc.ClientDriver" 
+          url="jdbc:derby://localhost:1527/auction"
+          maxActive="8" maxIdle="4"/>
+</Context>
+
