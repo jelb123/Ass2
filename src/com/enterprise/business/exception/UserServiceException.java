@@ -6,6 +6,11 @@ package com.enterprise.business.exception;
 public class UserServiceException extends Exception {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * @param message
 	 */
 	public UserServiceException(String message) {

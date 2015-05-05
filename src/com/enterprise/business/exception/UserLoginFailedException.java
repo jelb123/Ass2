@@ -6,6 +6,11 @@ package com.enterprise.business.exception;
 public class UserLoginFailedException extends Exception {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * @param message
 	 */
 	public UserLoginFailedException(String message) {
