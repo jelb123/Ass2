@@ -102,6 +102,7 @@ public class UserDAOImpl implements UserDAO{
 			if (rs.next()) {
 				UserBean user = createUserBean(rs);
 				stmt.close(); 
+				rs.close();
 				return user;
 			}
 		} catch (ServiceLocatorException e) {

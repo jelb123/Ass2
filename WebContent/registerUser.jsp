@@ -16,8 +16,8 @@
 			<center> Register User</center>
 		</h2>
 		
-		<form method="post" action="registerUser" class="form-add">
-			
+		<form method="post" action="dispatcher" class="form-add">
+		    <input type="hidden" name="operation" value="registeruser">
 			<label> Username: </label> <br>
 			<input placeholder="Username" maxlength=20 class="form-add-control" name="username" type="text" required="">
 			
@@ -51,13 +51,13 @@
 			<br><br>
 			<label>Address:</label> <br>
 			<div class="row">
-				<input placeholder="Street Address" maxlength=100 type="text" class="col-md-4 form-add-control" style="margin-left:15px;" name="streetAddress" required="">
+				<input placeholder="Street Address" maxlength=100 type="text" class="col-md-4 form-add-control" style="margin-left:15px;" name="streetaddress" required="">
 				<input placeholder="City" maxlength=50 type="text" class="col-md-2 form-add-control" name="city" required="">
 			</div>
 			<div class="row">
 				<input placeholder="State" maxlength=50 type="text" class="col-md-2 form-add-control" style="margin-left:15px;" name="state" required="">
 				<input placeholder="Country" maxlength=50 type="text" class="form-add-control" style="width:20%;" name="country" required="">
-				<input placeholder="Postcode" type="number" min=0 class="form-add-control" style="width:17%; margin-left:15px;" name="postCode" required="">
+				<input placeholder="Postcode" type="number" min=0 class="form-add-control" style="width:17%; margin-left:15px;" name="postcode" required="">
 			</div>
 			
 			<label> Credit Card Number: </label> <br>
