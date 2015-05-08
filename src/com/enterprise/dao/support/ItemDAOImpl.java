@@ -54,8 +54,8 @@ public class ItemDAOImpl implements ItemDAO {
 			 */
 			//ps.setInt(11, itemBean.getId()); the item_id is automatically generated
 			
-			ps.setInt(1, itemBean.getItemId());
-			ps.setInt(2, itemBean.getOwnerId());
+			ps.setInt(1, itemBean.getItemID());
+			ps.setInt(2, itemBean.getOwnerID());
 			ps.setString(3, itemBean.getTitle());
 			ps.setString(4, itemBean.getCategory());
 			ps.setString(5, itemBean.getPicture());
@@ -66,18 +66,18 @@ public class ItemDAOImpl implements ItemDAO {
 			ps.setFloat(10, itemBean.getBidIncrements());
 			ps.setString(11, itemBean.getEndTime());
 			ps.setFloat(12, itemBean.getHighestBid());
-			ps.setInt(13, itemBean.getHighestBidUserId());
+			ps.setInt(13, itemBean.getHighestBidUserID());
 	
 			
 			int rows = ps.executeUpdate();
 			if (rows < 1) 
-				throw new DataAccessException("TtemBean: " + itemBean + " not inserted");
+				throw new DataAccessException("ItemBean: " + itemBean + " not inserted");
 		} catch (ServiceLocatorException e) {
 			e.printStackTrace();
-			throw new DataAccessException("UserBean: " + userBean + " not inserted");
+			throw new DataAccessException("ItemBean: " + itemBean + " not inserted");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DataAccessException("UserBean: " + userBean + " not inserted");
+			throw new DataAccessException("ItemBean: " + itemBean + " not inserted");
 		}
 	}
 
@@ -200,7 +200,7 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	
 	public ItemBean getItemById(int id){
-		ItemBean item = new ItemBean;
+		ItemBean item = new ItemBean();
 		item = null;
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -264,8 +264,8 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setAddress(address);
 		
 		//Grab and set item details
-		item.setItemId(rs.getInt("item_id"));
-		item.setOwnerId(rs.getInt("ownerID"));
+		item.setItemID(rs.getInt("item_id"));
+		item.setOwnerID(rs.getInt("ownerID"));
 		item.setTitle(rs.getString("title"));
 		item.setCategory(rs.getString("category"));
 		item.setPicture(rs.getString("picture"));
@@ -279,7 +279,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setBidIncrements(rs.getFloat("bidIncrements"));
 		item.setEndTime(rs.getString("endTime"));
 		item.setHighestBid(rs.getFloat("highestBid"));
-		item.setHighestBidUserId(rs.getInt("highest_bid_user_ID"));
+		item.setHighestBidUserID(rs.getInt("highest_bid_user_ID"));
 		
 		return item;
 	}

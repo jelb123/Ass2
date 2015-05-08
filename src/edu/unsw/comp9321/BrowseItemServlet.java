@@ -73,7 +73,7 @@ public class BrowseItemServlet extends HttpServlet {
 			item.setDescription("");
 			item.setEndTime("");
 			item.setPicture("");
-			item.setItemID("");
+			item.setId("");
 			item.setBidIncrements(0);
 			
 			AddressBean address = new AddressBean();
