@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO{
 		Connection con = null;
 		try {
 			con = services.createConnection();
-			PreparedStatement stmt = con.prepareStatement("select * from TBL_USERS where username = ? and password = ?");
+			PreparedStatement stmt = con.prepareStatement("select * from TBL_USERS where username=? and password=?");
 			stmt.setString(1, username);
 			stmt.setString(2, password);
 			ResultSet rs = stmt.executeQuery();
