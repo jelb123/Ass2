@@ -18,7 +18,7 @@
 			<center> Register User</center>
 		</h2>
 
-	    <c:if test="${loginFailed == 'true'}">
+	    <c:if test="${registerFailed == 'true'}">
 			<br><br>
 	    	<p style="color:RED"> * User was not registered (Username possibly in use)</p>
 	    </c:if>		
