@@ -48,7 +48,7 @@ public class RegisterUserCommand implements Command {
 			user.setAdmin(false);
 			
 			userService.addUserRecord(user);
-			
+			request.setAttribute("regUser", userService.getUserByUsername(user.getUsername()));
 			
 			return "emailuser";
 		} catch (UserServiceException e){

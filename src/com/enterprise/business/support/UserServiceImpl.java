@@ -74,5 +74,13 @@ public class UserServiceImpl implements UserService {
 			throw new UserServiceException("Unable to find user by id: " + id);
 		}
 	}
+	
+	public UserBean getUserByUsername(String username) throws UserServiceException { 
+		try {
+			return userDAO.findUserByUsername(username);
+		} catch (DataAccessException e) {
+			throw new UserServiceException("Unable to find user by id: " + username);
+		}
+	}
 
 }

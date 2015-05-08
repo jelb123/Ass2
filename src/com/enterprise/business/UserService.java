@@ -47,5 +47,7 @@ public interface UserService {
 	 */
 	UserBean getUserById(int id) throws UserServiceException;
 	
+	UserBean getUserByUsername(String username) throws UserServiceException;
+	
 	
 }

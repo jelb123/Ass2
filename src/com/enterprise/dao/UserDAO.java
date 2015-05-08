@@ -53,4 +53,6 @@ public interface UserDAO {
 	 * @throws DataAccessException
 	 */
 	UserBean findUserByID(int id) throws DataAccessException;
+	
+	UserBean findUserByUsername(String username) throws DataAccessException;
 }

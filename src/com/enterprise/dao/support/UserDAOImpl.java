@@ -161,9 +161,35 @@ public class UserDAOImpl implements UserDAO{
 				return null;
 			user = createUserBean(rs);
 		} catch (ServiceLocatorException e) {
-			throw new DataAccessException("Unable to create user from database; " + e.getMessage(), e);
+			throw new DataAccessException("Unable to find user from database; " + e.getMessage(), e);
 		} catch (SQLException e) {
-			throw new DataAccessException("SQLException while creating contact from database;" + e.getMessage(), e);
+			throw new DataAccessException("SQLException while finding user;" + e.getMessage(), e);
+		} finally {
+			close(rs);
+			close(ps);
+			close(con);
+		}
+		return user;
+	}
+	
+	public UserBean findUserByUsername(String username) throws DataAccessException {
+		UserBean user = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement("select * from TBL_USERS where username = ?");
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+			if (!rs.next())
+				return null;
+			user = createUserBean(rs);			
+		} catch (ServiceLocatorException e) {
+			throw new DataAccessException("Unable to find user from database; " + e.getMessage(), e);
+		} catch (SQLException e) {
+			throw new DataAccessException("SQLException while finding user;" + e.getMessage(), e);
 		} finally {
 			close(rs);
 			close(ps);

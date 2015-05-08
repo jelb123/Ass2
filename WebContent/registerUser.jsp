@@ -20,8 +20,12 @@
 
 	    <c:if test="${registerFailed == 'true'}">
 			<br><br>
-	    	<p style="color:RED"> * User was not registered (Username possibly in use)</p>
-	    </c:if>		
+	    	<p style="color:RED"> * User was not registered (Username in use)</p>
+	    </c:if>
+	    	    <c:if test="${emailFailed == 'true'}">
+			<br><br>
+	    	<p style="color:RED"> * User was not registered (Email could not be sent)</p>
+	    </c:if>
 		
 		<form method="post" action="dispatcher" class="form-add">
 		    <input type="hidden" name="operation" value="registeruser">
