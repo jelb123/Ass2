@@ -237,10 +237,13 @@ public class ItemDAOImpl implements ItemDAO {
 			//updating the table: SET [col-name] = 'newValue' , [col2-name] ...
 			ps = con.prepareStatement(
 					"update TLB_ITEMS "
-					+ "set highestBid = 'bid_value', highest_bid_user_ID = 'bidder_id' "
-					+ "where item_id = 'item_id' ");
+					+ "set highestBid = ?, highest_bid_user_ID = ? "
+					+ "where item_id = ? ");
+			ps.setFloat(1, bid_value);
+			ps.setInt(2, bidder_id);
+			ps.setInt(3, item_id);
 			
-			rs = ps.executeUpdate();
+			ps.executeUpdate();
 	
 		} catch (SQLException e) {
 			throw new DataAccessException("Unable to update the bid value and user_id", e);

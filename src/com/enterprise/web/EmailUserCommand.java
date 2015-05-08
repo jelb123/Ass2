@@ -30,17 +30,17 @@ public class EmailUserCommand implements Command {
 		try {
 			
 			int id = user.getId();
-			String url = request.getRequestURI();
+			String url = request.getRequestURL().toString();
 			String to = request.getParameter("email");
 			String subject = "Account Activation";
-			String text = "Go to the link to activate: %n" 
+			String text = "Go to the link to activate: \n" 
 					+ url + "?operation=activate&id=" + id
-					+ "%n%n Username: " + user.getUsername()
-					+ "%n Password: " + user.getPassword();
+					+ "\n\n Username: " + user.getUsername()
+					+ "\n Password: " + user.getPassword();
 			
 			emailService.sendEmail(to, subject, text);
 			
-			return "userRegisteredPage.jsp";
+			return "/userRegisteredPage.jsp";
 		} catch (UserEmailServiceException e) {
 			e.printStackTrace();
 			UserService userService = new UserServiceImpl();
@@ -51,7 +51,7 @@ public class EmailUserCommand implements Command {
 			}
 			
 			request.setAttribute("emailFailed", "true");
-			return "registerUser.jsp";
+			return "/registerUser.jsp";
 			
 		}
 				
