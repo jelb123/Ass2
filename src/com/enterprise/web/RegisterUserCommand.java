@@ -1,6 +1,7 @@
 package com.enterprise.web;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -52,14 +53,10 @@ public class RegisterUserCommand implements Command {
 			return "emailuser";
 		} catch (UserServiceException e){
 			e.printStackTrace();
-			
+			request.setAttribute("registerFailed", "true");
+			return "/registerUser.jsp";	
 			
 		}
-		
-		
-		
-		
-		return null;
 		
 		
 	}

@@ -62,8 +62,10 @@ public class UserDAOImpl implements UserDAO{
 				throw new DataAccessException("UserBean: " + userBean + " not inserted");
 		} catch (ServiceLocatorException e) {
 			e.printStackTrace();
+			throw new DataAccessException("UserBean: " + userBean + " not inserted");
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new DataAccessException("UserBean: " + userBean + " not inserted");
 		}
 		
 	}
