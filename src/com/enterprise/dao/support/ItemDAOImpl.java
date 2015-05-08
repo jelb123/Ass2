@@ -83,7 +83,6 @@ public class ItemDAOImpl implements ItemDAO {
 
 	/*
 	 * delete item that is pointed to by the item_id that was passed in
-	 * 
 	 */
 	public void delete(int id) throws DataAccessException {
 		Connection con = null;
@@ -234,14 +233,17 @@ public class ItemDAOImpl implements ItemDAO {
 		ResultSet rs = null;
 		try {
 			con = services.createConnection();
+			
+			//updating the table: SET [col-name] = 'newValue' , [col2-name] ...
 			ps = con.prepareStatement(
 					"update TLB_ITEMS "
-					+ "set  "where item_id = ?");
-			ps.setInt(1, id);
-			rs = ps.executeQuery();
+					+ "set highestBid = 'bid_value', highest_bid_user_ID = 'bidder_id' "
+					+ "where item_id = 'item_id' ");
+			
+			rs = ps.executeUpdate();
 	
 		} catch (SQLException e) {
-			throw new DataAccessException("Unable to find item pointed by id", e);
+			throw new DataAccessException("Unable to update the bid value and user_id", e);
 		} catch (ServiceLocatorException e) {
 			throw new DataAccessException("Unable to locate connection", e);
 		} finally {
@@ -252,6 +254,13 @@ public class ItemDAOImpl implements ItemDAO {
 		
 	}
 	
+	
+	/*
+	 * Halt the auction ie. adding more time to the endTime column
+	 */
+	public void haltAuction(int item_id, int upTime){
+		
+	}
 	
 	
 	private ItemBean createItemBean(ResultSet rs) throws SQLException {
