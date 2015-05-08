@@ -116,7 +116,7 @@ public class ItemDAOImpl implements ItemDAO {
 		try {
 			con = services.createConnection();
 			ps = con.prepareStatement(
-					"select * from AUCTION_ITEMS");
+					"select * from TBL_ITEMS");
 			rs = ps.executeQuery();
 			while (rs.next())
 				list.add(createItemBean(rs));
@@ -199,6 +199,7 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	public ItemBean getItemById(int id){
 		ItemBean item = new ItemBean;
+		item = null;
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -208,10 +209,37 @@ public class ItemDAOImpl implements ItemDAO {
 					"select * from TLB_ITEMS where item_id = ?");
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
-			while (rs.next())
-				list.add(createItemBean(rs));
+	
 		} catch (SQLException e) {
-			throw new DataAccessException("Unable to find all items", e);
+			throw new DataAccessException("Unable to find item pointed by id", e);
+		} catch (ServiceLocatorException e) {
+			throw new DataAccessException("Unable to locate connection", e);
+		} finally {
+			close(rs);
+			close(ps);
+			close(con);
+		}
+		return item;
+	}
+	
+	
+	/*
+	 * updating to the new highest bidder value
+	 */
+	public void updateBid(int item_id, float bid_value, int bidder_id){
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+					"update TLB_ITEMS "
+					+ "set  "where item_id = ?");
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+	
+		} catch (SQLException e) {
+			throw new DataAccessException("Unable to find item pointed by id", e);
 		} catch (ServiceLocatorException e) {
 			throw new DataAccessException("Unable to locate connection", e);
 		} finally {
@@ -220,9 +248,8 @@ public class ItemDAOImpl implements ItemDAO {
 			close(con);
 		}
 		
-		
-		return item;
 	}
+	
 	
 	
 	private ItemBean createItemBean(ResultSet rs) throws SQLException {
