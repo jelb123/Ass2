@@ -30,9 +30,12 @@ public class ControllerServlet extends HttpServlet {
 		commands = new HashMap<String,Command>();
 		commands.put("login", new LoginCommand());
 		commands.put("registeruser", new RegisterUserCommand());
+		commands.put("emailuser", new EmailUserCommand());
+		
 		commands.put("browseitems", new BrowseItemCommand());
 		commands.put("searchitems", new SearchItemsCommand());
 		commands.put("PAGE_NOT_FOUND", new ErrorCommand());
+		
 		// TODO rest of command mapping
 	}
 	
