@@ -1,10 +1,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <a href="." ><div class="navbar-header navbar-brand">
+        <a href="dispatcher?operation=browseitems" ><div class="navbar-header navbar-brand">
             Auction!
         </div></a>
         <div class="navbar-collapse collapse">
-	            <form method="get" action="./Search" class="navbar-form navbar-left">
+	            <form method="get" action="dispatcher" class="navbar-form navbar-left">
+		            <input type="hidden" name="operation" value="searchitems">
 		            <div class="form-group">
 		                <input placeholder="Search for item" class="form-control" name="name" type="text" />
 		            </div>
