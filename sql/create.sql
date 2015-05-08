@@ -17,3 +17,5 @@ CREATE TABLE TBL_USERS (
 	admin BOOLEAN NOT NULL,
 	CONSTRAINT pk_users PRIMARY KEY (id)
 );
+
+DROP table tbl_users;

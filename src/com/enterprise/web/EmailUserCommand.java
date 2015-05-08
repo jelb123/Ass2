@@ -21,7 +21,12 @@ public class EmailUserCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Pull email from user send to him
+		
+		System.out.println(request.getRequestURI());
+		String to = request.getParameter("email");
+		String subject = "Account Activation";
+		String text = "Go to the link to activate: %n";
+		
 		return null;
 	}
 

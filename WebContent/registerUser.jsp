@@ -44,7 +44,7 @@
 			</div>
 								
 			<label> Email Address: </label> <br>
-			<input placeholder="Email Address" maxlength=20 class="form-add-control" name="email" type="email" required="">
+			<input placeholder="Email Address" maxlength=100 class="form-add-control" name="email" type="email" required="">
 			
 			<label> Date Of Birth: </label> <br>
 			<input class="form-add-control" type="date" name="dateofbirth" style="float:left;">
