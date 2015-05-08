@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class ItemBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private int itemID;
+	private int ownerID;
 	private String title;
 	private String category;
 	private String picture;
@@ -14,7 +16,24 @@ public class ItemBean implements Serializable{
 	private PriceBean startPrice;
 	private float bidIncrements;
 	private String endTime;
-	private String id;
+	private float highestBid;
+	private int highestBidUserID;
+	
+	public int getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
+	}
+
+	public int getOwnerID() {
+		return ownerID;
+	}
+
+	public void setOwnerID(int ownerID) {
+		this.ownerID = ownerID;
+	}
 	
 	public ItemBean() {
 	}
@@ -91,13 +110,22 @@ public class ItemBean implements Serializable{
 		this.endTime = endTime;
 	}
 
-	public String getId() {
-		return id;
+	public float getHighestBid() {
+		return highestBid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setHighestBid(float highestBid) {
+		this.highestBid = highestBid;
 	}
+
+	public int getHighestBidUserID() {
+		return highestBidUserID;
+	}
+
+	public void setHighestBidUserID(int highestBidUserID) {
+		this.highestBidUserID = highestBidUserID;
+	}
+	
 	
 	
 
