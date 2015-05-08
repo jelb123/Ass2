@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Ass1">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Ass2">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Ass1"/>
-        <property name="java-output-path" value="/Ass1/build/classes"/>
+        <property name="java-output-path" value="/Ass2/build/classes"/>
+        <property name="context-root" value="Ass2"/>
     </wb-module>
 </project-modules>
