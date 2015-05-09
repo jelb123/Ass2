@@ -36,7 +36,7 @@
 		                            </a>
 		                        </li>
 		                        <li>
-		                        	<a href="">
+		                        	<a href="dispatcher?operation=logout">
 		                        		Logout
 		                        	</a>
 		                        </li>

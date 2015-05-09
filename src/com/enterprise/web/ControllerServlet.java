@@ -33,6 +33,7 @@ public class ControllerServlet extends HttpServlet {
 		commands.put("emailuser", new EmailUserCommand());
 		commands.put("activate", new ActivateUserCommand(1));
 		commands.put("updateuserdetails", new UpdateUserDetailsCommand());
+		commands.put("logout", new LogoutCommand());
 		
 		commands.put("adminshowusers", new AdminShowUsersCommand());
 		commands.put("banuser", new ActivateUserCommand(3));

@@ -26,6 +26,7 @@
 				<img src="${item.picture}">
 				<div style="margin-left:25px; padding-top: 10px;">
                 	<center>
+		                <c:choose>
 		                <c:when test="${user.isAdmin == false}">
 			                <form method="post" action="dispatcher">
 			                	<input type="hidden" name="operation" value="addtowishlist" >
@@ -66,6 +67,7 @@
 				                </form>
 		              		</div>
 		                </c:otherwise>
+		                </c:choose>
 		            </center>
 		        </div>
 			</div>
