@@ -260,9 +260,6 @@ public class ItemDAOImpl implements ItemDAO {
 				update = 1;							
 			} 
 			//if it's not, do nothing and return 0;
-			
-			
-	
 		} catch (SQLException e) {
 			throw new DataAccessException("Unable to update the bid value and user_id", e);
 		} catch (ServiceLocatorException e) {
