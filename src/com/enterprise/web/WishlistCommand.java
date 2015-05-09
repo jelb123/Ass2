@@ -11,10 +11,8 @@ import com.enterprise.beans.ItemBean;
 import com.enterprise.beans.UserBean;
 import com.enterprise.business.ItemService;
 import com.enterprise.business.UserService;
-import com.enterprise.business.WishlistService;
 import com.enterprise.business.support.ItemServiceImpl;
 import com.enterprise.business.support.UserServiceImpl;
-import com.enterprise.business.support.WishlistServiceImpl;
 import com.enterprise.dao.DataAccessException;
 
 public class WishlistCommand implements Command {
