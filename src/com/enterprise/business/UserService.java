@@ -51,5 +51,7 @@ public interface UserService {
 	
 	void updateUserState(int id, int newState) throws UserServiceException;
 	
+	void updateUserRecord(UserBean user) throws UserServiceException;
+	
 	
 }

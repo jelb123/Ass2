@@ -94,4 +94,14 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	public void updateUserRecord(UserBean user) throws UserServiceException {
+		try {
+			userDAO.updateUserRecord(user);
+		} catch (SQLException e) { 
+			throw new UserServiceException("Unable to update account state for user: " + user.getId());
+		} catch (DataAccessException e) {
+			throw new UserServiceException("Unable to update account state for user: " + user.getId());
+		}
+	}
+	
 }

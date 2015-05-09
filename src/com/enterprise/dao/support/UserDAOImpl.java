@@ -54,7 +54,7 @@ public class UserDAOImpl implements UserDAO{
 			ps.setInt(12, userBean.getAddress().getPostCode());
 			ps.setInt(13, userBean.getCreditCardNumber());
 			ps.setInt(14, userBean.getAccountState());
-			ps.setBoolean(15, userBean.isAdmin());
+			ps.setBoolean(15, userBean.getIsAdmin());
 			
 			
 			int rows = ps.executeUpdate();
@@ -220,6 +220,44 @@ public class UserDAOImpl implements UserDAO{
 		}
 	}
 	
+	public void updateUserRecord(UserBean user) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+				"update TBL_USERS set password = ?, email = ?, nickname = ?, " +
+				"firstname = ?, lastname = ?, date_of_birth = ?, street_address = ?, city = ?, " + 
+				"state = ?, country = ?, postcode = ?, credit_card_number = ? where id=?");
+			
+			ps.setString(1, user.getPassword());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getNickname());
+			ps.setString(4, user.getFirstName());
+			ps.setString(5, user.getLastName());
+			ps.setString(6, user.getDateOfBirth());
+			ps.setString(7, user.getAddress().getStreetAddress());
+			ps.setString(8, user.getAddress().getCity());
+			ps.setString(9, user.getAddress().getState());
+			ps.setString(10, user.getAddress().getCountry());
+			ps.setInt(11, user.getAddress().getPostCode());
+			ps.setInt(12, user.getCreditCardNumber());
+					
+			ps.setInt(13, user.getId());
+			
+			int rows = ps.executeUpdate();
+			if (rows < 1) 
+				throw new DataAccessException("User State: " + user.getId() + " not updated");
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(ps);
+			close(con);
+		}
+	}
+	
 	private UserBean createUserBean(ResultSet rs) throws SQLException {
 		UserBean user = new UserBean();
 		AddressBean address = new AddressBean();
@@ -242,7 +280,7 @@ public class UserDAOImpl implements UserDAO{
 		user.setDateOfBirth(rs.getString("date_of_birth"));
 		user.setAddress(address);
 		user.setCreditCardNumber(rs.getInt("credit_card_number"));
-		user.setAdmin(rs.getBoolean("admin"));
+		user.setIsAdmin(rs.getBoolean("admin"));
 		user.setAccountState(rs.getInt("account_state"));
 		
 		return user;

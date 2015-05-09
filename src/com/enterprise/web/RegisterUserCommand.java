@@ -45,7 +45,7 @@ public class RegisterUserCommand implements Command {
 			System.out.println(user.getDateOfBirth());
 			user.setCreditCardNumber(Integer.parseInt(request.getParameter("creditcardnumber")));
 			user.setAccountState(2); // Set account to not active (for email)
-			user.setAdmin(false);
+			user.setIsAdmin(false);
 			
 			userService.addUserRecord(user);
 			request.setAttribute("regUser", userService.getUserByUsername(user.getUsername()));

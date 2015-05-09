@@ -1,8 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <a href="dispatcher?operation=browseitems" ><div class="navbar-header navbar-brand">
-            Auction!
-        </div></a>
+	        <a href="dispatcher?operation=browseitems" >
+	        	<div class="navbar-header navbar-brand">
+	          		Auction!
+	        	</div>
+        	</a>
+        
         <div class="navbar-collapse collapse">
 	            <form method="get" action="dispatcher" class="navbar-form navbar-left">
 		            <input type="hidden" name="operation" value="searchitems">
@@ -13,7 +20,7 @@
 		            <a href="advancedSearch.jsp" class="btn btn-link btn-sm">Advanced Search</a>
 	            </form>
 	            
-	            <div class="btn-group navbar-right" >
+	            <div class="btn-group navbar-right" style="padding-top: 8px">
 	            
 	            	<c:choose>
 						<c:when test="${user != null}">
@@ -24,11 +31,16 @@
 		                    </a>
 		                    <ul class="dropdown-menu">
 		                        <li>
-		                        	<a href="">
+		                        	<a href="updateDetails.jsp">
 		                            	Edit Account
 		                            </a>
 		                        </li>
-		                        <c:if test="${user.isAdmin == true}">
+		                        <li>
+		                        	<a href="">
+		                        		Logout
+		                        	</a>
+		                        </li>
+		                        <c:if test="${user.isAdmin == 'true'}">
 			                        <li>
 			                        	<a href="">
 			                            	Show Users

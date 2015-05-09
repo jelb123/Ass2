@@ -57,4 +57,6 @@ public interface UserDAO {
 	UserBean findUserByUsername(String username) throws DataAccessException;
 	
 	void updateUserState(int id, int newState) throws SQLException;
+	
+	void updateUserRecord(UserBean user) throws SQLException;
 }

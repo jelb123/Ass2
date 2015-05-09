@@ -32,6 +32,8 @@ public class ControllerServlet extends HttpServlet {
 		commands.put("registeruser", new RegisterUserCommand());
 		commands.put("emailuser", new EmailUserCommand());
 		commands.put("activate", new ActivateUserCommand());
+		commands.put("updateuserdetails", new UpdateUserDetailsCommand());
+		
 		commands.put("browseitems", new BrowseItemCommand());
 		commands.put("searchitems", new SearchItemsCommand());
 		commands.put("additem", new AddItemCommand());
