@@ -47,8 +47,8 @@ public class ItemDAOImpl implements ItemDAO {
 			PreparedStatement ps = con.prepareStatement(
 				"insert into TBL_ITEMS (ownerID, title, category, " +
 				"picture, description, address, reservePrice, startPrice, " + 
-				"bidIncrements, endTime, highestBid, highest_bid_user_ID)" +
-				" values (?,?,?,?,?,?,?,?,?,?,?,?)");
+				"bidIncrements, endTime, highestBid, highest_bid_user_ID, isActive)" +
+				" values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			/*
 			 * read values in from input form
@@ -67,6 +67,7 @@ public class ItemDAOImpl implements ItemDAO {
 			ps.setInt(10, itemBean.getEndTime());
 			ps.setFloat(11, itemBean.getStartPrice().getPrice());
 			ps.setInt(12, itemBean.getOwnerID());
+			ps.setBoolean(13, true);
 			
 			int rows = ps.executeUpdate();
 			if (rows < 1) 
@@ -232,9 +233,7 @@ public class ItemDAOImpl implements ItemDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		ItemBean item = new ItemBean();
 		int update = 0;
-		item = null;
 		try {
 			con = services.createConnection();
 			
@@ -271,8 +270,37 @@ public class ItemDAOImpl implements ItemDAO {
 	/*
 	 * Halt the auction ie. adding more time to the endTime column
 	 */
-	public void haltAuction(int item_id, int upTime){
-		
+	public ItemBean haltAuction(int item_id){
+		Connection con = null;
+		PreparedStatement ps1 = null;
+		PreparedStatement ps2 = null;
+		ResultSet rs = null;
+		ItemBean item = null;
+		try {
+			con = services.createConnection();
+			ps1 = con.prepareStatement(
+				"update TBL_ITEMS "
+				+ "set isActive = false where item_id = ? ");
+			ps1.setInt(1, item_id);
+			ps1.executeUpdate();
+			
+			ps2 = con.prepareStatement(
+				"select * from TBL_ITEMS "
+				+ "where item_id = ? ");
+			ps2.setInt(1, item_id);
+			rs = ps2.executeQuery();
+			
+			if (!rs.next())
+				return null;
+			item = createItemBean(rs);
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+			throw new DataAccessException("Couldnt locate database service");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DataAccessException("Couldnt update isActive");
+		}
+		return item;
 	}
 	
 	
@@ -422,6 +450,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setEndTime(rs.getInt("endTime"));
 		item.setHighestBid(rs.getFloat("highestBid"));
 		item.setHighestBidUserID(rs.getInt("highest_bid_user_ID"));
+		item.setIsActive(rs.getBoolean("isActive"));
 		
 		return item;
 	}

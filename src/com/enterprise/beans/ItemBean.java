@@ -19,7 +19,16 @@ public class ItemBean implements Serializable{
 	private int endTime;		//end time = current time + auction length
 	private float highestBid;
 	private int highestBidUserID;
+	private boolean isActive;
 	
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public int getItemID() {
 		return itemID;
 	}

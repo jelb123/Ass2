@@ -82,9 +82,13 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public void haltAuction(int item_id, int upTime) {
+	public ItemBean haltAuction(int item_id) throws ItemServiceException {
 		// TODO Auto-generated method stub
-		
+		try {
+			return itemDAO.haltAuction(item_id);
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Cant stop the auction");
+		}
 	}
 
 	
