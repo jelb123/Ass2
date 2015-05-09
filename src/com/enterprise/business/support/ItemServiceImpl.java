@@ -105,9 +105,9 @@ public class ItemServiceImpl implements ItemService{
 
 
 	@Override
-	public void insertToWishlist(ItemBean itemBean) throws ItemServiceException {
+	public void insertToWishlist(int item_id, int user_id) throws ItemServiceException {
 		try {
-			itemDAO.insertToWishlist(itemBean);
+			itemDAO.insertToWishlist(item_id, user_id);
 		} catch (DataAccessException e) {
 			throw new ItemServiceException("Unable to add item to Wishlist", e);
 		}		

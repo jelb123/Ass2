@@ -289,7 +289,7 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	//FUNCTIONS BELOW ARE FOR WISHLIST
 	
-		public void insertToWishlist(ItemBean itemBean) {
+		public void insertToWishlist(int item_id, int user_id ) {
 			try {
 				Connection con = services.createConnection();
 				PreparedStatement ps = con.prepareStatement(
@@ -299,19 +299,19 @@ public class ItemDAOImpl implements ItemDAO {
 				/*
 				 * read values in from input form
 				 */		
-				ps.setInt(1, itemBean.getItemID());
-				ps.setInt(2, itemBean.getOwnerID());
+				ps.setInt(1, item_id);
+				ps.setInt(2, user_id);
 		
 				
 				int rows = ps.executeUpdate();
 				if (rows < 1) 
-					throw new DataAccessException("ItemBean: " + itemBean + " not inserted in wishlist");
+					throw new DataAccessException("item_id: " + item_id + " not inserted in wishlist");
 			} catch (ServiceLocatorException e) {
 				e.printStackTrace();
-				throw new DataAccessException("ItemBean: " + itemBean + " not inserted in wishlist");
+				throw new DataAccessException("item_id: " + item_id + " not inserted in wishlist");
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new DataAccessException("ItemBean: " + itemBean + " not inserted in wishlist");
+				throw new DataAccessException("item_id: " + item_id + " not inserted in wishlist");
 			}
 		}
 		
