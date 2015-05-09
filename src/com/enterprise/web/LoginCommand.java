@@ -43,7 +43,7 @@ public class LoginCommand implements Command {
 				return "/login.jsp";
 			} else {
 				session.setAttribute("user", user);
-				return "/welcome.jsp";
+				return "displayItemsList";
 			}
 		} catch (UserLoginFailedException e) {
 			e.printStackTrace();
