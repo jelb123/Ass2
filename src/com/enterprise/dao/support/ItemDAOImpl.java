@@ -46,8 +46,8 @@ public class ItemDAOImpl implements ItemDAO {
 			PreparedStatement ps = con.prepareStatement(
 				"insert into TBL_ITEMS (ownerID, title, category, " +
 				"picture, description, address, reservePrice, startPrice, " + 
-				"bidIncrements, endTime, highestBid, highest_bid_user_ID)" +
-				" values (?,?,?,?,?,?,?,?,?,?,?,?)");
+				"bidIncrements, endTime)" +
+				" values (?,?,?,?,?,?,?,?,?,?)");
 			
 			/*
 			 * read values in from input form
@@ -64,8 +64,6 @@ public class ItemDAOImpl implements ItemDAO {
 			ps.setFloat(8, itemBean.getStartPrice().getPrice());
 			ps.setFloat(9, itemBean.getBidIncrements());
 			ps.setInt(10, itemBean.getEndTime());
-			ps.setFloat(11, 1);
-			ps.setInt(12, 1);
 	
 			
 			int rows = ps.executeUpdate();
