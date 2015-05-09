@@ -97,7 +97,7 @@
 		    </div>
 		    <div class="row">
 		    	<label class="col-md-3">Auction Length (in minutes):</label>
-		    	<input class="form-add-control" type="number" min =3 max =60 name="auctionLength" style="float:left;">
+		    	<input class="form-add-control" type="number" min=3 max=60 name="auctionLength" style="float:left;">
 		    </div>
 		    <p></p>
 		    <div class="row">

@@ -27,6 +27,23 @@
 		                	<input type="hidden" name="item" value="${item.itemID}">
 		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
 		                </form>
+		                <br><br>
+		                <c:choose>
+						    <c:when test="${msg == null}">
+				                <form method="post" action="dispatcher">
+				                	<input type="hidden" name="operation" value="putBid">
+				                	<input type="hidden" name="item" value="${item.itemID}">
+				                	<div class="row">
+								    	<label class="col-md-3">Place Bid:</label>
+								    	<input class="form-add-control" type="number" min="${item.highestBid + item.bidIncrements}" name="bidamount" style="width:40%; float:left;">
+			                			<input type="submit" value="Place Bid" class="btn btn-primary" style="float:left;">
+								    </div>
+				                </form>
+		                	</c:when>
+	                		<c:otherwise>
+	                			<p class="bg-warning">${msg}</p>
+	                		</c:otherwise>
+                		</c:choose>
 		                
 		            </center>
 		        </div>
