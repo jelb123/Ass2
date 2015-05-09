@@ -9,7 +9,7 @@ create table TBL_ITEMS (
 	reservePrice FLOAT,
 	startPrice FLOAT,
 	bidIncrements FLOAT,
-	endTime VARCHAR(30),
+	endTime INTEGER,
 	highestBid FLOAT,
 	highest_bid_user_ID INT 
 
