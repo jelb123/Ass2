@@ -12,7 +12,9 @@
 <body>
 	<jsp:include page="includes/header.jsp" />
 	<center><h2 style="color:red"> ${msg}</h2></center>
-	
+	<center>
+	<h3><b> Wish List </b></h3>
+	</center>
 	<div class="row">
 	<c:forEach var="item" items="${items}" varStatus="i">
 		<c:if test="${i.index % 5 == 0}">

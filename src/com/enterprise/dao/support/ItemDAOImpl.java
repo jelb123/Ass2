@@ -199,6 +199,52 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	
 	
+	/*
+	 * ADVANCED SEARCH!
+	 * we don't "OR" in there "where sql statement" since it's a very narrowed search
+	 */
+	public List<ItemBean> advancedSearch(String name, String desc, String category, String addr, float start_price){
+		
+		List<ItemBean> list = new ArrayList<ItemBean>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = services.createConnection();
+			
+			String wildCard = "%";
+			name 		= wildCard + name + wildCard;
+			desc 		= wildCard + desc + wildCard;
+			category 	= wildCard + category + wildCard;
+			addr 		= wildCard + addr + wildCard;
+			
+			ps = con.prepareStatement(
+					"select * from TBL_ITEMS where title like ? and description like ? and category like ? "
+					+ "and address like ? and startPrice = ?" );
+			ps.setString(1, name);
+			ps.setString(2, desc);
+			ps.setString(3, category);
+			ps.setString(4, addr);
+			ps.setFloat(5, start_price);
+			
+			rs = ps.executeQuery();
+			while (rs.next())
+				list.add(createItemBean(rs));
+		} catch (SQLException e) {
+			throw new DataAccessException("Unable to find all items", e);
+		} catch (ServiceLocatorException e) {
+			throw new DataAccessException("Unable to locate connection", e);
+		} finally {
+			close(rs);
+			close(ps);
+			close(con);
+		}
+		
+		return list;
+	}
+	
+	
+	
 	public ItemBean getItemById(int id){
 		ItemBean item = null;
 		Connection con = null;
