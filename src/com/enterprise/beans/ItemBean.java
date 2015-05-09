@@ -15,7 +15,8 @@ public class ItemBean implements Serializable{
 	private PriceBean reservePrice;
 	private PriceBean startPrice;
 	private float bidIncrements;
-	private String endTime;
+	private int auctionLength;	//Length of auction in minutes > 3, < 60 
+	private int endTime;		//end time = current time + auction length
 	private float highestBid;
 	private int highestBidUserID;
 	
@@ -102,12 +103,13 @@ public class ItemBean implements Serializable{
 		this.bidIncrements = bidIncrements;
 	}
 
-	public String getEndTime() {
-		return endTime;
+
+	public int getAuctionLength() {
+		return auctionLength;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setAuctionLength(int auctionLength) {
+		this.auctionLength = auctionLength;
 	}
 
 	public float getHighestBid() {
@@ -124,6 +126,14 @@ public class ItemBean implements Serializable{
 
 	public void setHighestBidUserID(int highestBidUserID) {
 		this.highestBidUserID = highestBidUserID;
+	}
+	
+	public int getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(int endTime) {
+		this.endTime = endTime;
 	}
 	
 	

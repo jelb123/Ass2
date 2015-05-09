@@ -210,7 +210,7 @@ public class ItemDAOImpl implements ItemDAO {
 					"select * from TLB_ITEMS where item_id = ?");
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
-	
+			item = createItemBean(rs);
 		} catch (SQLException e) {
 			throw new DataAccessException("Unable to find item pointed by id", e);
 		} catch (ServiceLocatorException e) {
@@ -227,24 +227,39 @@ public class ItemDAOImpl implements ItemDAO {
 	/*
 	 * updating to the new highest bidder value
 	 */
-	public void updateBid(int item_id, float bid_value, int bidder_id){
+	public int updateBid(int item_id, float bid_value, int bidder_id){
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		ItemBean item = new ItemBean();
+		int update = 0;
+		item = null;
 		try {
 			con = services.createConnection();
 			
 			//updating the table: SET [col-name] = 'newValue' , [col2-name] ...
 			ps = con.prepareStatement(
-					"update TLB_ITEMS "
-					+ "set highestBid = ?, highest_bid_user_ID = ? "
-					+ "where item_id = ? ");
+					"select * from  TLB_ITEMS where item_id = ?");
 			ps.setFloat(1, bid_value);
-			ps.setInt(2, bidder_id);
-			ps.setInt(3, item_id);
+			rs = ps.executeQuery();
+			//store the bean values you read from the database
+			item = createItemBean(rs);					
 			
-			ps.executeUpdate();
-	
+			//Check if the bid_value > current database bid_value
+			if (bid_value > item.getHighestBid()){
+				//update to the new database value
+				ps = con.prepareStatement(
+						"update TLB_ITEMS "
+						+ "set highestBid = ?, highest_bid_user_ID = ? "
+						+ "where item_id = ? ");
+				ps.setFloat(1, bid_value);
+				ps.setInt(2, bidder_id);
+				ps.setInt(3, item_id);
+				ps.executeUpdate();
+				//flag that we have update so we return = 1
+				update = 1;							
+			} 
+			//if it's not, do nothing and return 0;
 		} catch (SQLException e) {
 			throw new DataAccessException("Unable to update the bid value and user_id", e);
 		} catch (ServiceLocatorException e) {
@@ -254,8 +269,11 @@ public class ItemDAOImpl implements ItemDAO {
 			close(ps);
 			close(con);
 		}
-		
+		return update;						//we did not update the bid value
 	}
+	
+	
+	
 	
 	
 	/*

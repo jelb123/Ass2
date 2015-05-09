@@ -60,6 +60,7 @@ public interface ItemDAO {
 	 * To be written and determined how to be handled
 	 * @param item_id
 	 * @param upTime
+	 * 
 	 */
 	public void haltAuction(int item_id, int upTime);
 }
