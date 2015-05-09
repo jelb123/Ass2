@@ -1,5 +1,6 @@
 package com.enterprise.business.support;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.enterprise.beans.UserBean;
@@ -79,7 +80,17 @@ public class UserServiceImpl implements UserService {
 		try {
 			return userDAO.findUserByUsername(username);
 		} catch (DataAccessException e) {
-			throw new UserServiceException("Unable to find user by id: " + username);
+			throw new UserServiceException("Unable to find user by username: " + username);
+		}
+	}
+	
+	public void updateUserState(int id, int newState) throws UserServiceException {
+		try {
+			userDAO.updateUserState(id, newState);
+		} catch (SQLException e) { 
+			throw new UserServiceException("Unable to update account state for user: " + id);
+		} catch (DataAccessException e) {
+			throw new UserServiceException("Unable to update account state for user: " + id);
 		}
 	}
 

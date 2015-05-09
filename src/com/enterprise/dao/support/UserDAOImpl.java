@@ -198,6 +198,28 @@ public class UserDAOImpl implements UserDAO{
 		return user;
 	}
 	
+	public void updateUserState(int id, int newState) throws DataAccessException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+				"update TBL_USERS set account_state=? where id=?");
+			ps.setInt(1, newState);
+			ps.setInt(2, id);
+			int rows = ps.executeUpdate();
+			if (rows < 1) 
+				throw new DataAccessException("User State: " + id + " not updated");
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(ps);
+			close(con);
+		}
+	}
+	
 	private UserBean createUserBean(ResultSet rs) throws SQLException {
 		UserBean user = new UserBean();
 		AddressBean address = new AddressBean();
@@ -251,5 +273,5 @@ public class UserDAOImpl implements UserDAO{
 			e.printStackTrace();
 		}
 	}
-
+	
 }

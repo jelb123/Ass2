@@ -49,5 +49,7 @@ public interface UserService {
 	
 	UserBean getUserByUsername(String username) throws UserServiceException;
 	
+	void updateUserState(int id, int newState) throws UserServiceException;
+	
 	
 }
