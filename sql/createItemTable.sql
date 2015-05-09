@@ -3,8 +3,8 @@ create table TBL_ITEMS (
 	ownerID INTEGER,
 	title VARCHAR(30),
 	category VARCHAR(30),
-	picture VARCHAR(30),
-	description VARCHAR(100),
+	picture VARCHAR(200),
+	description VARCHAR(200),
 	address VARCHAR(100),
 	reservePrice FLOAT,
 	startPrice FLOAT,
@@ -14,6 +14,8 @@ create table TBL_ITEMS (
 	highest_bid_user_ID INT, 
 
 	PRIMARY KEY (item_id),
-	CONSTRAINT fk_items FOREIGN KEY (id)
+	CONSTRAINT fk_items FOREIGN KEY (ownerID)
 	REFERENCES TBL_Users (id)
 );
+
+drop table TBL_ITEMS;

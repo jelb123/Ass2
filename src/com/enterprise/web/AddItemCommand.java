@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.enterprise.beans.AddressBean;
 import com.enterprise.beans.ItemBean;
 import com.enterprise.beans.PriceBean;
+import com.enterprise.beans.UserBean;
 import com.enterprise.dao.DataAccessException;
 import com.enterprise.dao.ItemDAO;
 import com.enterprise.dao.support.ItemDAOImpl;
@@ -30,12 +31,14 @@ public class AddItemCommand implements Command {
 		AddressBean address = new AddressBean();
 		PriceBean reserveBean = new PriceBean();
 		PriceBean startBean = new PriceBean();
+		UserBean user = (UserBean) request.getSession().getAttribute("user"); 
 		
 		try {
 			item.setTitle(request.getParameter("name"));
 			item.setCategory(request.getParameter("category"));
 			item.setPicture(request.getParameter("picture"));
 			item.setDescription(request.getParameter("description"));
+			item.setOwnerID(user.getId());
 			
 			address.setStreetAddress(request.getParameter("streetAddress"));
 			address.setCity(request.getParameter("city"));
@@ -52,7 +55,7 @@ public class AddItemCommand implements Command {
 			startBean.setPrice(Float.parseFloat(request.getParameter("startPrice")));
 			item.setStartPrice(startBean);
 			
-			item.setBidIncrements(Float.parseFloat(request.getParameter("BidIncrement")));
+			item.setBidIncrements(Float.parseFloat(request.getParameter("bidIncrement")));
 			item.setAuctionLength(Integer.parseInt(request.getParameter("auctionLength")));
 			
 			//Date now = new Date();
@@ -67,6 +70,8 @@ public class AddItemCommand implements Command {
 			private float highestBid;
 			private int highestBidUserID;
 			*/
+			
+			itemDAO.insert(item);
 			request.setAttribute("msg", "Item Added Successfully");
 			return "/itemAdded.jsp";
 			

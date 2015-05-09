@@ -14,7 +14,11 @@
 		<center>
 			<h3> ${msg}</h3>
 			<p></p>
-			<a href="." class="btn btn-success"> Back to Homepage </a>
+			<form method="post" action="dispatcher"  class="form-signin">
+		    	<input type="hidden" name="operation" value="displayItemsList">
+				<input type="submit" class="btn btn-success" name="Back to Homepage" value="Back to Homepage">;
+			</form>
+			
 		</center>
 	</div>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>

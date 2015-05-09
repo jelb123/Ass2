@@ -64,9 +64,9 @@ public class ItemDAOImpl implements ItemDAO {
 			ps.setFloat(8, itemBean.getReservePrice().getPrice());
 			ps.setFloat(9, itemBean.getStartPrice().getPrice());
 			ps.setFloat(10, itemBean.getBidIncrements());
-			ps.setString(11, itemBean.getEndTime());
-			ps.setFloat(12, itemBean.getHighestBid());
-			ps.setInt(13, itemBean.getHighestBidUserID());
+			ps.setInt(11, itemBean.getEndTime());
+			ps.setFloat(12, 1);
+			ps.setInt(13, 1);
 	
 			
 			int rows = ps.executeUpdate();
@@ -307,7 +307,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setReservePrice(price);
 		
 		item.setBidIncrements(rs.getFloat("bidIncrements"));
-		item.setEndTime(rs.getString("endTime"));
+		item.setEndTime(rs.getInt("endTime"));
 		item.setHighestBid(rs.getFloat("highestBid"));
 		item.setHighestBidUserID(rs.getInt("highest_bid_user_ID"));
 		

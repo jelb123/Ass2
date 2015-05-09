@@ -236,17 +236,17 @@ public class InsertItemServlet extends HttpServlet {
 		////
 		
 		//// Set end time
-			Node itemEndTime = doc.createElement("EndTime");
-			itemEndTime.appendChild(doc.createTextNode(endDate+"-"+endTime));
-			item.appendChild(itemEndTime);
-			iteml.setEndTime(endDate+"-"+endTime);
-		////	
-		
-		////Set Id
-			Node itemID = doc.createElement("ID");
-			itemID.appendChild(doc.createTextNode(id));
-			item.appendChild(itemID);
-			iteml.setId(id);
+//			Node itemEndTime = doc.createElement("EndTime");
+//			itemEndTime.appendChild(doc.createTextNode(endDate+"-"+endTime));
+//			item.appendChild(itemEndTime);
+//			iteml.setEndTime(endDate+"-"+endTime);
+//		////	
+//		
+//		////Set Id
+//			Node itemID = doc.createElement("ID");
+//			itemID.appendChild(doc.createTextNode(id));
+//			item.appendChild(itemID);
+//			iteml.setId(id);
 		////
 		
 		  //Append to tree/list

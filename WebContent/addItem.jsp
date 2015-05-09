@@ -15,7 +15,7 @@
 		<center> Add an Item</center>
 	</h2>
 	<div class="container">
-		<form method="post" action="insertItem" class="form-add">
+		<form method="post" action="dispatcher" class="form-add">
 			<input type="hidden" name="operation" value="additem">
 			<label> Name of Item: </label>
 			<input placeholder="Name" maxlength=100 class="form-add-control" name="name" type="text" required="">
