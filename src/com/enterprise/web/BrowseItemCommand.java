@@ -24,7 +24,9 @@ public class BrowseItemCommand implements Command {
 		
 		try {
 			int itemID = Integer.parseInt(request.getParameter("item"));
+			System.out.println(request.getParameter("item"));
 			ItemBean item = itemDAO.getItemById(itemID);
+			
 			request.setAttribute("item", item);
 			return "/displayItem.jsp";
 			
