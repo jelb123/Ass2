@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.enterprise.beans.ItemBean;
 import com.enterprise.beans.UserBean;
-import com.enterprise.business.ItemService;
-import com.enterprise.business.UserService;
+import com.enterprise.business.exception.ItemServiceException;
 import com.enterprise.business.support.ItemServiceImpl;
-import com.enterprise.business.support.UserServiceImpl;
 import com.enterprise.dao.DataAccessException;
 
 public class WishlistCommand implements Command {
@@ -28,30 +26,24 @@ public class WishlistCommand implements Command {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
-		ItemBean item = (ItemBean) request.getSession().getAttribute("item");
 		if(user == null){
 			request.setAttribute("msg", "No user is Logged in");
 		}
-		if(item == null){
-			request.setAttribute("msg", "No item is available");
-		}
 		
 		try {
-			String search = request.getParameter("name");
+			int user_id = user.getId();
+			List<ItemBean> wishList = wishlistService.showWishlist(user_id);
 			
-			//List<ItemBean> results = itemService.findItemByString(search);
-			//request.setAttribute("items", results);
-			//if(results.isEmpty()) {}
+			request.setAttribute("items", wishList);
 			return "/welcome.jsp";
 		
-		} catch(DataAccessException e){
+		} catch(ItemServiceException e){
+			e.printStackTrace();
+			return "/welcome.jsp";
+		} catch(DataAccessException e ){
 			e.printStackTrace();
 			return "/welcome.jsp";
 		}
-		
-		
-		
-		return null;
 	}
 
 }
