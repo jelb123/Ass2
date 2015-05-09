@@ -38,14 +38,14 @@ public interface ItemDAO {
 	 * @param searchString
 	 * @return a list<ItemBean> that contains "searchString" input
 	 */
-	public List<ItemBean> findItemByString(String searchString);
+	public List<ItemBean> findItemByString(String searchString) throws DataAccessException;
 	
 	/**
 	 * Simply retrieves the itemBean that is equal to the id passed in (item_id)
 	 * @param id refers to the item_id
 	 * @return itemBean that contains this item_id
 	 */
-	public ItemBean getItemById(int id);
+	public ItemBean getItemById(int id) throws DataAccessException;;
 	
 	/**
 	 * Updates the database item if and only if the NEW bid_value > then the CURRENT big_value in the database  
@@ -54,7 +54,7 @@ public interface ItemDAO {
 	 * @param bidder_id 	the user_id of the new highest bidder
 	 * @return if we update the value (ie. bid_value > current db_bid_value), ret = 1 else ret = 0
 	 */
-	public int updateBid(int item_id, float bid_value, int bidder_id);
+	public int updateBid(int item_id, float bid_value, int bidder_id) throws DataAccessException;
 	
 	/**
 	 * To be written and determined how to be handled
@@ -62,5 +62,5 @@ public interface ItemDAO {
 	 * @param upTime
 	 * 
 	 */
-	public void haltAuction(int item_id, int upTime);
+	public void haltAuction(int item_id, int upTime) throws DataAccessException;
 }
