@@ -172,10 +172,11 @@ public class ItemDAOImpl implements ItemDAO {
 		ResultSet rs = null;
 		try {
 			con = services.createConnection();
-			
+			String wildCard = "%";
+			searchString = wildCard + searchString + wildCard;
 			//CHECK IF CORRECT %?% might throw errors hard here!!
 			ps = con.prepareStatement(
-					"select * from TLB_ITEMS where title like %?% or description like %?% or category like %?%");
+					"select * from TBL_ITEMS where title like ? or description like ? or category like ?");
 			ps.setString(1, searchString);
 			ps.setString(2, searchString);
 			ps.setString(3, searchString);

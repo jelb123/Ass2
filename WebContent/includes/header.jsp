@@ -4,7 +4,7 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-	        <a href="dispatcher?operation=browseitems" >
+	        <a href="dispatcher?operation=displayItemsList" >
 	        	<div class="navbar-header navbar-brand">
 	          		Auction!
 	        	</div>
