@@ -25,7 +25,7 @@
 	            	<c:choose>
 						<c:when test="${user != null}">
 			            	<a href="addItem.jsp" class="btn btn-primary btn-sm">Add Item</a>
-			            	<a href="./Wishlist" class="btn btn-primary btn-sm">Wishlist</a>
+			            	<a href="dispatcher?operation=wishlist" class="btn btn-primary btn-sm">Wishlist</a>
 			            	<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" style="padding-bottom: 8px">
 		                        <span class="glyphicon glyphicon-cog" />
 		                    </a>
@@ -42,7 +42,7 @@
 		                        </li>
 		                        <c:if test="${user.isAdmin == 'true'}">
 			                        <li>
-			                        	<a href="">
+			                        	<a href="dispatcher?operation=adminshowusers">
 			                            	Show Users
 			                            </a>
 			                        </li>
