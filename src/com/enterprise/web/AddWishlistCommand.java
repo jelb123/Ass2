@@ -30,6 +30,10 @@ public class AddWishlistCommand implements Command {
 		UserBean user = (UserBean) request.getSession().getAttribute("user"); 
 		
 		try {
+			
+			if(user == null){
+				System.out.println("user = null\n");
+			}
 			int user_id = user.getId();
 			int item_id = Integer.parseInt(request.getParameter("item"));
 			wishlistService.insertToWishlist(item_id, user_id);
