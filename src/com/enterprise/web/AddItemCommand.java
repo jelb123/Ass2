@@ -67,14 +67,16 @@ public class AddItemCommand implements Command {
 			private float highestBid;
 			private int highestBidUserID;
 			*/
+			request.setAttribute("msg", "Item Added Successfully");
+			return "/itemAdded.jsp";
 			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
-			request.setAttribute("addItemFailed", "true");
+			request.setAttribute("msg", "Adding Item Failed");
 			return "/itemAdded.jsp";	
 		}
 		
-		return null;
+		//return null;
 	}
 
 }

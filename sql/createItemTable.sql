@@ -11,7 +11,7 @@ create table TBL_ITEMS (
 	bidIncrements FLOAT,
 	endTime INTEGER,
 	highestBid FLOAT,
-	highest_bid_user_ID INT 
+	highest_bid_user_ID INT, 
 
 	PRIMARY KEY (item_id),
 	CONSTRAINT fk_items FOREIGN KEY (id)

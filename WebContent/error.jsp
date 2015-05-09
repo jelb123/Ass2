@@ -13,6 +13,7 @@
 <body>
 	<jsp:include page="includes/header.jsp" />
 	<h1 style="color:RED" align="CENTER"> 404 - Page Not Found </h1>
-
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 </body>
 </html>
