@@ -177,13 +177,7 @@ public class ItemDAOImpl implements ItemDAO {
 			ps = con.prepareStatement(
 					"select * from TLB_ITEMS where title like %?% or description like %?% or category like %?%");
 			ps.setString(1, searchString);
-			ps.setString(2, searchString);public int getEndTime() {
-				return endTime;
-			}
-
-			public void setEndTime(int endTime) {
-				this.endTime = endTime;
-			}
+			ps.setString(2, searchString);
 			ps.setString(3, searchString);
 			
 			rs = ps.executeQuery();
