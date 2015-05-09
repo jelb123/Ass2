@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.enterprise.beans.AddressBean;
@@ -339,7 +340,10 @@ public class ItemDAOImpl implements ItemDAO {
 		
 		
 		public List<ItemBean> showWishlist(int user_id) {
-			List<ItemBean> list = new ArrayList<ItemBean>();
+			List<ItemBean> wishList = new ArrayList<ItemBean>();	//for the actual wishList<ItemBean>
+			List<Integer> itemsToSearch = new ArrayList<Integer>();
+			int i;
+			
 			Connection con = null;
 			PreparedStatement ps = null;
 			ResultSet rs = null;
@@ -349,8 +353,18 @@ public class ItemDAOImpl implements ItemDAO {
 						"select * from TBL_WISHLIST where owner_id = ?");
 				ps.setInt(1, user_id);
 				rs = ps.executeQuery();
-				while (rs.next())
-					list.add(createItemBean(rs));
+				while (rs.next()){
+					itemsToSearch.add(rs.getInt("item_id"));
+				}
+				
+				//create iterator for loop below
+				Iterator<Integer> myListIterator = itemsToSearch.iterator(); 
+				
+				//add ItemBeans to the actually wishList, previously we were returning only item_id's etc.
+				for(i = 0; i < itemsToSearch.size() && myListIterator.hasNext(); i++){
+					wishList.add(getItemById(myListIterator.next()));
+				}
+				
 			} catch (SQLException e) {
 				throw new DataAccessException("Unable to show all items in wishlist", e);
 			} catch (ServiceLocatorException e) {
@@ -360,7 +374,7 @@ public class ItemDAOImpl implements ItemDAO {
 				close(ps);
 				close(con);
 			}
-			return list;
+			return wishList;
 		}
 		
 	
