@@ -63,4 +63,17 @@ public interface ItemDAO {
 	 * 
 	 */
 	public void haltAuction(int item_id, int upTime) throws DataAccessException;
+	
+	
+	
+	
+	/*
+	 * 	this is for wishlist shit
+	 * 
+	 */
+	public List<ItemBean> showWishlist(int user_id) throws DataAccessException;
+	public void insertToWishlist(ItemBean itemBean) throws DataAccessException;
+	public void deleteFromWishlist(int item_id) throws DataAccessException;
+	
+	
 }

@@ -87,4 +87,40 @@ public class ItemServiceImpl implements ItemService{
 		
 	}
 
+	
+	/*
+	 * WISHLIST STUFF BELOW!!!
+	 */
+
+	@Override
+	public List<ItemBean> showWishlist(int user_id) throws ItemServiceException {
+		try {
+			List<ItemBean> wishList = itemDAO.showWishlist(user_id);
+			return wishList;
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to return WishList of <ItemBean> held in db", e);
+		} 
+		
+	}
+
+
+	@Override
+	public void insertToWishlist(ItemBean itemBean) throws ItemServiceException {
+		try {
+			itemDAO.insertToWishlist(itemBean);
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to add item to Wishlist", e);
+		}		
+	}
+
+
+	@Override
+	public void deleteFromWishlist(int item_id) throws ItemServiceException {
+		try {
+			itemDAO.deleteFromWishlist(item_id);
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to delete item from Wishlist", e);
+		} 
+	}
+
 }

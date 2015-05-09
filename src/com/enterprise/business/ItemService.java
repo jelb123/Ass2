@@ -59,4 +59,12 @@ public interface ItemService {
 	 * 
 	 */
 	public void haltAuction(int item_id, int upTime) throws ItemServiceException;
+	
+	/*
+	 * WISHLIST STUFF BELOW!!
+	 */
+	public List<ItemBean> showWishlist(int user_id) throws ItemServiceException;
+	public void insertToWishlist(ItemBean itemBean) throws ItemServiceException;
+	public void deleteFromWishlist(int item_id) throws ItemServiceException;
+	
 }
