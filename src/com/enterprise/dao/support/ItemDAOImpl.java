@@ -200,8 +200,7 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	
 	public ItemBean getItemById(int id){
-		ItemBean item = new ItemBean();
-		item = null;
+		ItemBean item = null;
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -211,6 +210,8 @@ public class ItemDAOImpl implements ItemDAO {
 					"select * from TBL_ITEMS where item_id = ?");
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
+			if (!rs.next())
+				return null;
 			item = createItemBean(rs);
 		} catch (SQLException e) {
 			throw new DataAccessException("Unable to find item pointed by id", e);
@@ -387,8 +388,10 @@ public class ItemDAOImpl implements ItemDAO {
 		
 		//Grab price of item and package to Bean
 		price.setPrice(rs.getFloat("reservePrice"));
-		price.setPrice(rs.getFloat("startPrice"));
 		item.setReservePrice(price);
+		price.setPrice(rs.getFloat("startPrice"));
+		item.setStartPrice(price);
+		
 		
 		item.setBidIncrements(rs.getFloat("bidIncrements"));
 		item.setEndTime(rs.getInt("endTime"));

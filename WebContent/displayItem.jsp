@@ -23,7 +23,7 @@
 				<div style="margin-left:25px; padding-top: 10px;">
                 	<center>
 		                <form method="post" action="./Wishlist">
-		                	<input type="hidden" name="wishListId" value="${item.id}">
+		                	<input type="hidden" name="wishListId" value="${item.itemID}">
 		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
 		                </form>
 		            </center>
