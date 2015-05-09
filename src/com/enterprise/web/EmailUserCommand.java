@@ -41,7 +41,7 @@ public class EmailUserCommand implements Command {
 			emailService.sendEmail(to, subject, text);
 			
 			request.setAttribute("msg", "You have been registered! Activate through email");
-			return "/userRegisteredPage.jsp";
+			return "/displayMsg.jsp";
 		} catch (UserEmailServiceException e) {
 			e.printStackTrace();
 			UserService userService = new UserServiceImpl();

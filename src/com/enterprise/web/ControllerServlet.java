@@ -65,7 +65,10 @@ public class ControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getSession().getAttribute("user") == null) {
+		if (request.getParameter("operation") != null && 
+			request.getParameter("operation").equals("activate")) {
+			processRequest(request, response);
+		} else if (request.getSession().getAttribute("user") == null) {
 			request.setAttribute("loginFailed", "false");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
