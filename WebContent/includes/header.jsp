@@ -50,7 +50,7 @@
 		                    </ul>
 	                    </c:when>
 	                    <c:when test="${user == null}">
-	                    	<a href="login.jsp" class="btn btn-primary btn-sm">login</a>
+	                    	<a href="login.jsp" class="btn btn-primary btn-sm">Login</a>
 	                    </c:when>
 					</c:choose>
 	            </div>
