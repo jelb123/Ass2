@@ -44,29 +44,28 @@ public class ItemDAOImpl implements ItemDAO {
 		try {
 			Connection con = services.createConnection();
 			PreparedStatement ps = con.prepareStatement(
-				"insert into TBL_ITEMS (item_id, ownerID, title, category, " +
+				"insert into TBL_ITEMS (ownerID, title, category, " +
 				"picture, description, address, reservePrice, startPrice, " + 
 				"bidIncrements, endTime, highestBid, highest_bid_user_ID)" +
-				" values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				" values (?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			/*
 			 * read values in from input form
 			 */
 			//ps.setInt(11, itemBean.getId()); the item_id is automatically generated
 			
-			ps.setInt(1, itemBean.getItemID());
-			ps.setInt(2, itemBean.getOwnerID());
-			ps.setString(3, itemBean.getTitle());
-			ps.setString(4, itemBean.getCategory());
-			ps.setString(5, itemBean.getPicture());
-			ps.setString(6, itemBean.getDescription());
-			ps.setString(7, itemBean.getAddress().getStreetAddress());
-			ps.setFloat(8, itemBean.getReservePrice().getPrice());
-			ps.setFloat(9, itemBean.getStartPrice().getPrice());
-			ps.setFloat(10, itemBean.getBidIncrements());
-			ps.setInt(11, itemBean.getEndTime());
-			ps.setFloat(12, 1);
-			ps.setInt(13, 1);
+			ps.setInt(1, itemBean.getOwnerID());
+			ps.setString(2, itemBean.getTitle());
+			ps.setString(3, itemBean.getCategory());
+			ps.setString(4, itemBean.getPicture());
+			ps.setString(5, itemBean.getDescription());
+			ps.setString(6, itemBean.getAddress().getStreetAddress());
+			ps.setFloat(7, itemBean.getReservePrice().getPrice());
+			ps.setFloat(8, itemBean.getStartPrice().getPrice());
+			ps.setFloat(9, itemBean.getBidIncrements());
+			ps.setInt(10, itemBean.getEndTime());
+			ps.setFloat(11, 1);
+			ps.setInt(12, 1);
 	
 			
 			int rows = ps.executeUpdate();
