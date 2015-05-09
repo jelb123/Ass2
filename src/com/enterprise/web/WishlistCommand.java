@@ -35,7 +35,7 @@ public class WishlistCommand implements Command {
 			List<ItemBean> wishList = wishlistService.showWishlist(user_id);
 			
 			request.setAttribute("items", wishList);
-			return "/welcome.jsp";
+			return "/displayWishlist.jsp";
 		
 		} catch(ItemServiceException e){
 			e.printStackTrace();
