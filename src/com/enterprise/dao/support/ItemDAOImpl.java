@@ -285,6 +285,89 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 	
 	
+	
+	
+	//FUNCTIONS BELOW ARE FOR WISHLIST
+	
+		public void insertToWishlist(ItemBean itemBean) {
+			try {
+				Connection con = services.createConnection();
+				PreparedStatement ps = con.prepareStatement(
+					"insert into TBL_WISHLIST (item_id, ownerID)" +
+					" values (?,?)");
+				
+				/*
+				 * read values in from input form
+				 */		
+				ps.setInt(1, itemBean.getItemID());
+				ps.setInt(2, itemBean.getOwnerID());
+		
+				
+				int rows = ps.executeUpdate();
+				if (rows < 1) 
+					throw new DataAccessException("ItemBean: " + itemBean + " not inserted in wishlist");
+			} catch (ServiceLocatorException e) {
+				e.printStackTrace();
+				throw new DataAccessException("ItemBean: " + itemBean + " not inserted in wishlist");
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new DataAccessException("ItemBean: " + itemBean + " not inserted in wishlist");
+			}
+		}
+		
+		/* 
+		 * delete item from Wishlist by item_id
+		 */
+		public void deleteFromWishlist(int item_id) {
+			Connection con = null;
+			PreparedStatement ps = null;
+			try {
+				con = services.createConnection();
+				ps = con.prepareStatement(
+					"delete from TBL_WISHLIST where item_id=?");
+				ps.setInt(1, item_id);
+				int rows = ps.executeUpdate();
+				if (rows < 1) 
+					throw new DataAccessException("ItemBean: " + item_id + " not deleted from wishlist");
+			} catch (ServiceLocatorException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(ps);
+				close(con);
+			}
+		} 
+		
+		
+		public List<ItemBean> showWishlist(int user_id) {
+			List<ItemBean> list = new ArrayList<ItemBean>();
+			Connection con = null;
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			try {
+				con = services.createConnection();
+				ps = con.prepareStatement(
+						"select * from TBL_WISHLIST where owner_id = ?");
+				ps.setInt(1, user_id);
+				rs = ps.executeQuery();
+				while (rs.next())
+					list.add(createItemBean(rs));
+			} catch (SQLException e) {
+				throw new DataAccessException("Unable to show all items in wishlist", e);
+			} catch (ServiceLocatorException e) {
+				throw new DataAccessException("Unable to locate connection", e);
+			} finally {
+				close(rs);
+				close(ps);
+				close(con);
+			}
+			return list;
+		}
+		
+	
+	
+	
 	private ItemBean createItemBean(ResultSet rs) throws SQLException {
 		ItemBean item = new ItemBean();
 		AddressBean address = new AddressBean();
