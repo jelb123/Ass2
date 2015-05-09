@@ -13,9 +13,10 @@ import com.enterprise.business.support.UserServiceImpl;
 public class ActivateUserCommand implements Command {
 	
 	private static UserService userService;
-	
-	public ActivateUserCommand() {
+	private int newState;
+	public ActivateUserCommand(int state) {
 		userService = new UserServiceImpl();
+		newState = state;
 	}
 	
 	@Override
@@ -31,17 +32,22 @@ public class ActivateUserCommand implements Command {
 				request.setAttribute("msg", "Account id: " + id + " Couldnt be activated (Account is banned)");
 				return "/displayMsg.jsp";
 			} else if (userService.getUserById(id).getAccountState() == 1) {
-				request.setAttribute("msg", "Account id: " + id + " is already active m8");
-				return "/displayMsg.jsp";
+				if (newState != 3) {
+					request.setAttribute("msg", "Account id: " + id + " is already active m8");
+					return "/displayMsg.jsp";
+				}
 			} 
 			
-			int newState = 1;
 			userService.updateUserState(id, newState);
 			
 
-				
-			request.setAttribute("msg", "Your Account has been Activated, please login");
-			return "/login.jsp";
+			if (newState == 1) {
+				request.setAttribute("msg", "Your Account has been Activated, please login");
+				return "/login.jsp";
+			} else {
+				request.setAttribute("msg", userService.getUserById(id).getUsername() + "has been banned");
+				return "adminshowusers";
+			}
 		} catch (UserServiceException e) {
 			e.printStackTrace();
 			

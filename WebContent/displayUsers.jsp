@@ -14,10 +14,15 @@
 	<jsp:include page="includes/header.jsp" />
 	
 	<div class="container" align="CENTER">
+			<br><br>
+			<c:if test="${msg != null}">
+		    	<p class="bg-danger" style="width:50%" align="CENTER"> ${msg}</p>
+	    	</c:if>
 			<table class="table table-striped" style="width:50%" align="CENTER">
 			<tr>
 				<th> Username </th>
 				<th> Id </th>
+				<th> Account Status </th>
 				<th> 	</th>
 			</tr>
 			<c:forEach var="user" items="${userslist}" varStatus="i">
@@ -27,7 +32,10 @@
 					<input type="hidden" name="id" value="${user.id}">
 					<td> ${user.username} </td>
 					<td> ${user.id} </td>
-					<td> <input type="submit" name="Ban User" value="Ban User" class="btn btn-danger btn-sm" /> </td>
+					<td> <c:if test="${user.accountState == 1}"> Active </c:if> 
+					<c:if test="${user.accountState == 2}"> Pending </c:if>
+					<c:if test="${user.accountState == 3}"> Banned </c:if>
+					<td> <c:if test="${user.accountState != 3 && user.isAdmin == false}"> <input type="submit" name="Ban User" value="Ban User" class="btn btn-danger btn-sm" /></c:if> </td>
 				</form>
 			</tr>	
 		
