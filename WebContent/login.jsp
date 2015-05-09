@@ -32,7 +32,7 @@
 			    </label>
 		    --%>
 		    <div class="controls" align="CENTER">
-		        <input type="submit" name="Login" value="Login" class="btn btn-primary" /> 
+		        <input type="submit" name="Login" value="Login" class="btn btn-primary" />
 		        <small>
 		            or <a href="registerUser.jsp"> create a new account </a>
 		        </small>
