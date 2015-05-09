@@ -54,6 +54,12 @@ public class AddItemCommand implements Command {
 			
 			item.setBidIncrements(Float.parseFloat(request.getParameter("BidIncrement")));
 			item.setAuctionLength(Integer.parseInt(request.getParameter("auctionLength")));
+			
+			//Date now = new Date();
+			
+			
+			//item.setEndTime(Integer.parseInt(request.getParameter("auctionLength") + ));
+			
 			/*
 			private int itemID;
 			private int ownerID;
