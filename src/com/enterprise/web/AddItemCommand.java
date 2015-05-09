@@ -58,7 +58,7 @@ public class AddItemCommand implements Command {
 			//Date now = new Date();
 			
 			
-			//item.setEndTime(Integer.parseInt(request.getParameter("auctionLength") + ));
+			item.setEndTime(Integer.parseInt(request.getParameter("auctionLength")));	//TEMPORARY
 			
 			/*
 			private int itemID;
