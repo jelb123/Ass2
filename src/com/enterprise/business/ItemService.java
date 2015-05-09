@@ -37,6 +37,18 @@ public interface ItemService {
 	public List<ItemBean> findItemByString(String searchString) throws ItemServiceException;
 	
 	/**
+	 * ADVANCED search, very narrow, all the fields must equal the table fields in the database
+	 * @param name			of the product
+	 * @param desc			
+	 * @param category
+	 * @param addr			of the postal area possibilities
+	 * @param start_price
+	 * @return				a list of the <itembean>
+	 * @throws DataAccessException
+	 */
+	public List<ItemBean> advancedSearch(String name, String desc, String category, String addr, float start_price) throws ItemServiceException;
+	
+	/**
 	 * Simply retrieves the itemBean that is equal to the id passed in (item_id)
 	 * @param id refers to the item_id
 	 * @return itemBean that contains this item_id

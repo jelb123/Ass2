@@ -15,18 +15,23 @@
 		<center>
 			<h3><b> Advanced Search </b></h3>
 		</center>
-		<form method="get" action="./Search" class="form-add">
+		<form method="post" action="dispatcher" class="form-add">
 			<label> Name: </label>
 			<input placeholder="Name" class="form-add-control" name="name" type="text">
 			<label> Category: </label>
 			<input placeholder="Category" class="form-add-control" name="category" type="text">
 			<label> Description: </label>
 			<input placeholder="Description" class="form-add-control" name="description" type="text">
+			<label>Postal area</label>
+			<input placeholder="Address" class="form-add-control" name="address" type="text">
+			<label> Price: </label>
+			<input placeholder="Price" class="form-add-control" name="startPrice" type="number">
 			<div class="row">
 		    	<div class="col-sm-8">
 		       		<label></label>
 		       	</div>
 		       	<div class="col-sm-4">
+		       		<input type="hidden" name="operation" value="advancedSearch" >
 		        	<input type="submit" value="Search" class="btn btn-primary">
 		       	</div>
 		   </div>

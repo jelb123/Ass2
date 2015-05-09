@@ -44,6 +44,7 @@ public class ControllerServlet extends HttpServlet {
 		commands.put("searchitems", new SearchItemsCommand());
 		commands.put("additem", new AddItemCommand());
 		commands.put("displayItemsList", new DisplayItemsCommand());
+		commands.put("advancedSearch", new AdvancedSearchCommand());
 		commands.put("PAGE_NOT_FOUND", new ErrorCommand());
 		
 		// TODO rest of command mapping

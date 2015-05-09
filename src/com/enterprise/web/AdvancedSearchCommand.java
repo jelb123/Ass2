@@ -1,39 +1,37 @@
 package com.enterprise.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.enterprise.beans.ItemBean;
 import com.enterprise.business.exception.ItemServiceException;
 import com.enterprise.business.support.ItemServiceImpl;
 import com.enterprise.dao.DataAccessException;
-import com.enterprise.dao.ItemDAO;
-import com.enterprise.dao.support.ItemDAOImpl;
 
-public class SearchItemsCommand implements Command {
+public class AdvancedSearchCommand implements Command {
 
-	private static ItemServiceImpl itemSearch;
+private static ItemServiceImpl itemASearch;
 	
-	public SearchItemsCommand() {
-		itemSearch = new ItemServiceImpl();
+	public AdvancedSearchCommand() {
+		itemASearch = new ItemServiceImpl();
 	}
 	
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		//HttpSession session = request.getSession();
-		
 		try {
-			String search = request.getParameter("name");
+			String name = request.getParameter("name");
+			String category = request.getParameter("category");
+			String description = request.getParameter("description");
+			String address = request.getParameter("address");
+			float price = Float.parseFloat(request.getParameter("startPrice"));	
 			
-			List<ItemBean> results = itemSearch.findItemByString(search);
+			List<ItemBean> results = itemASearch.advancedSearch(name, description, category, address, price);
 			request.setAttribute("items", results);
 			//if(results.isEmpty()) {}
 			return "/welcome.jsp";
@@ -46,7 +44,7 @@ public class SearchItemsCommand implements Command {
 			e.printStackTrace();
 			return "/welcome.jsp";
 		}
-		//return null;
 	}
+
 
 }

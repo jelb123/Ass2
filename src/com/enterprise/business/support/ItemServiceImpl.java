@@ -60,6 +60,19 @@ public class ItemServiceImpl implements ItemService{
 			throw new ItemServiceException("Unable to find item by string", e);
 		} 
 	}
+	
+	@Override
+	public List<ItemBean> advancedSearch(String name, String desc,
+			String category, String addr, float start_price)
+			throws ItemServiceException {
+		
+		try {
+			List<ItemBean> itemList = itemDAO.advancedSearch(name, desc, category, addr, start_price);
+			return itemList;
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to find item in ADVANCED SEARCH", e);
+		} 
+	}
 
 	@Override
 	public ItemBean getItemById(int id) throws ItemServiceException {
@@ -130,5 +143,8 @@ public class ItemServiceImpl implements ItemService{
 			throw new ItemServiceException("Unable to find row", e);
 		}
 	}
+
+
+	
 
 }
