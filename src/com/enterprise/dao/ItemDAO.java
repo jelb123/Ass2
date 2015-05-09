@@ -74,7 +74,7 @@ public interface ItemDAO {
 	 * @param upTime
 	 * 
 	 */
-	public void haltAuction(int item_id, int upTime) throws DataAccessException;
+	public ItemBean haltAuction(int item_id) throws DataAccessException;
 	
 	
 	

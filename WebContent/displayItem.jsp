@@ -12,6 +12,10 @@
 <body>
 	<jsp:include page="includes/header.jsp" />
 	<div class="container">
+		<c:if test="${item.isActive == false}">
+			<h3 class="bg-warning">This auction is already over</h3>
+			
+		</c:if>
 		<div class="row">
 			<div class="col-md-3" style="float: left; margin-left: -10px">
 				<center><h2><b>${item.title}</b></h2></center>
@@ -22,29 +26,46 @@
 				<img src="${item.picture}">
 				<div style="margin-left:25px; padding-top: 10px;">
                 	<center>
-		                <form method="post" action="dispatcher">
-		                	<input type="hidden" name="operation" value="addtowishlist" >
-		                	<input type="hidden" name="item" value="${item.itemID}">
-		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
-		                </form>
-		                <br><br>
-		                <c:choose>
-						    <c:when test="${msg == null}">
+		                <c:when test="${user.isAdmin == false}">
+			                <form method="post" action="dispatcher">
+			                	<input type="hidden" name="operation" value="addtowishlist" >
+			                	<input type="hidden" name="item" value="${item.itemID}">
+			                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
+			                </form>
+			                <br><br>
+			                <c:choose>
+							    <c:when test="${msg == null && item.isActive == true}">
+					                <form method="post" action="dispatcher">
+					                	<input type="hidden" name="operation" value="putBid">
+					                	<input type="hidden" name="item" value="${item.itemID}">
+					                	<div class="row">
+									    	<label class="col-md-3">Place Bid:</label>
+									    	<input class="form-add-control" type="number" min="${item.highestBid + item.bidIncrements}" name="bidamount" style="width:40%; float:left;">
+				                			<input type="submit" value="Place Bid" class="btn btn-primary" style="float:left;">
+									    </div>
+					                </form>
+			                	</c:when>
+		                		<c:otherwise>
+		                			<p class="bg-warning">${msg}</p>
+		                		</c:otherwise>
+	                		</c:choose>
+		                </c:when>
+		                <c:otherwise>
+						    <div class="row">
+						    	<c:if test="${item.isActive == true}">
+				                	<form method="post" action="dispatcher">
+					                	<input type="hidden" name="operation" value="haltauction" >
+					                	<input type="hidden" name="item" value="${item.itemID}">
+					                	<input type="submit" value="Halt Auction" class="btn btn-danger">
+					                </form>
+					            </c:if>
 				                <form method="post" action="dispatcher">
-				                	<input type="hidden" name="operation" value="putBid">
+				                	<input type="hidden" name="operation" value="removeitem" >
 				                	<input type="hidden" name="item" value="${item.itemID}">
-				                	<div class="row">
-								    	<label class="col-md-3">Place Bid:</label>
-								    	<input class="form-add-control" type="number" min="${item.highestBid + item.bidIncrements}" name="bidamount" style="width:40%; float:left;">
-			                			<input type="submit" value="Place Bid" class="btn btn-primary" style="float:left;">
-								    </div>
+				                	<input type="submit" value="Remove Item" class="btn btn-danger">
 				                </form>
-		                	</c:when>
-	                		<c:otherwise>
-	                			<p class="bg-warning">${msg}</p>
-	                		</c:otherwise>
-                		</c:choose>
-		                
+		              		</div>
+		                </c:otherwise>
 		            </center>
 		        </div>
 			</div>

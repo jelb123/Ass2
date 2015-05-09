@@ -70,7 +70,7 @@ public interface ItemService {
 	 * @param upTime
 	 * 
 	 */
-	public void haltAuction(int item_id, int upTime) throws ItemServiceException;
+	public ItemBean haltAuction(int item_id) throws ItemServiceException;
 	
 	/*
 	 * WISHLIST STUFF BELOW!!
