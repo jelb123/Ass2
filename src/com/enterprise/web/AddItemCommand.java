@@ -35,6 +35,12 @@ public class AddItemCommand implements Command {
 		PriceBean startBean = new PriceBean();
 		UserBean user = (UserBean) request.getSession().getAttribute("user"); 
 		
+		if (user == null) {
+			request.setAttribute("msg", "Login to add item");
+			return "/login.jsp";
+		}
+		
+		
 		try {
 			item.setTitle(request.getParameter("name"));
 			item.setCategory(request.getParameter("category"));
@@ -58,12 +64,19 @@ public class AddItemCommand implements Command {
 			item.setStartPrice(startBean);
 			
 			item.setBidIncrements(Float.parseFloat(request.getParameter("bidIncrement")));
-			item.setAuctionLength(Integer.parseInt(request.getParameter("auctionLength")));
+			
+			int auctionTime;
+			if (request.getParameter("auctionLength") == null || request.getParameter("auctionLength").equals("")) {
+				auctionTime = 10;
+			} else {
+				auctionTime = Integer.parseInt(request.getParameter("auctionLength"));
+			}
+			item.setAuctionLength(auctionTime);
 			
 			//Date now = new Date();
 			
 			
-			item.setEndTime(Integer.parseInt(request.getParameter("auctionLength")));	//TEMPORARY
+			item.setEndTime(auctionTime);	//TEMPORARY
 			
 			/*
 			private int itemID;

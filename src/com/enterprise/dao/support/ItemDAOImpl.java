@@ -208,7 +208,7 @@ public class ItemDAOImpl implements ItemDAO {
 		try {
 			con = services.createConnection();
 			ps = con.prepareStatement(
-					"select * from TLB_ITEMS where item_id = ?");
+					"select * from TBL_ITEMS where item_id = ?");
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			item = createItemBean(rs);
@@ -240,7 +240,7 @@ public class ItemDAOImpl implements ItemDAO {
 			
 			//updating the table: SET [col-name] = 'newValue' , [col2-name] ...
 			ps = con.prepareStatement(
-					"select * from  TLB_ITEMS where item_id = ?");
+					"select * from  TBL_ITEMS where item_id = ?");
 			ps.setFloat(1, bid_value);
 			rs = ps.executeQuery();
 			//store the bean values you read from the database
@@ -250,7 +250,7 @@ public class ItemDAOImpl implements ItemDAO {
 			if (bid_value > item.getHighestBid()){
 				//update to the new database value
 				ps = con.prepareStatement(
-						"update TLB_ITEMS "
+						"update TBL_ITEMS "
 						+ "set highestBid = ?, highest_bid_user_ID = ? "
 						+ "where item_id = ? ");
 				ps.setFloat(1, bid_value);

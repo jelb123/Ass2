@@ -12,10 +12,7 @@ create table TBL_ITEMS (
 	endTime INTEGER,
 	highestBid FLOAT,
 	highest_bid_user_ID INT, 
-
-	PRIMARY KEY (item_id),
-	CONSTRAINT fk_items FOREIGN KEY (ownerID)
-	REFERENCES TBL_Users (id)
+	CONSTRAINT pk_items PRIMARY KEY (item_id)
 );
 
 drop table TBL_ITEMS;
