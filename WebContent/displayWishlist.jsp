@@ -21,13 +21,13 @@
 		</c:if>
    			<center>
    				<div class="col-md-2-5" style="float:left; padding-bottom: 8px;">
-   					<a href="./BrowseItem?item=${item.id}">
+   					<a href="dispatcher?operation=browseitem&id=${item.itemID}">
    						<img class="img-rounded" src="${item.picture}">
    						<h5>${item.title}</h5>
    					</a>
    					<div>
 		                <form method="post" action="./removeItem">
-		                	<input type="hidden" name="wishListId" value="${item.id}">
+		                	<input type="hidden" name="wishListId" value="${item.itemID}">
 		                	<input type="submit" value="Remove from Wishlist" class="btn btn-primary">
 		                </form>
 			                

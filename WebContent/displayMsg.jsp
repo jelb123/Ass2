@@ -15,7 +15,7 @@
 	
 	<div class="container">
 		<form method="post" action="dispatcher"  class="form-signin">
-			<input type="hidden" name="operation" value="browseitems">
+			<input type="hidden" name="operation" value="displayItemsList">
 			<c:if test="${msg != null}">
 		    	<p class="bg-success"> ${msg}</p>
 		    </c:if>
