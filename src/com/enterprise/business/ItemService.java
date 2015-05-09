@@ -66,5 +66,6 @@ public interface ItemService {
 	public List<ItemBean> showWishlist(int user_id) throws ItemServiceException;
 	public void insertToWishlist(int item_id, int user_id) throws ItemServiceException;
 	public void deleteFromWishlist(int item_id) throws ItemServiceException;
+	public boolean isInWishlist(int itemID, int userID) throws ItemServiceException;
 	
 }

@@ -21,7 +21,7 @@
 		</c:if>
    			<center>
    				<div class="col-md-2-5" style="float:left; padding-bottom: 8px;">
-   					<a href="dispatcher?operation=browseitem&id=${item.itemID}">
+   					<a href="dispatcher?operation=browseitem&item=${item.itemID}">
    						<img class="img-rounded" src="${item.picture}">
    						<h5>${item.title}</h5>
    					</a>

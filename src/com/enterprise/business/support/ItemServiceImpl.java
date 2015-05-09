@@ -122,5 +122,13 @@ public class ItemServiceImpl implements ItemService{
 			throw new ItemServiceException("Unable to delete item from Wishlist", e);
 		} 
 	}
+	
+	public boolean isInWishlist(int itemID, int userID) throws ItemServiceException {
+		try {
+			return itemDAO.isInWishlist(itemID, userID);
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to find row", e);
+		}
+	}
 
 }

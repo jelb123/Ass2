@@ -32,8 +32,12 @@ public class AddWishlistCommand implements Command {
 		try {
 			int user_id = user.getId();
 			int item_id = Integer.parseInt(request.getParameter("item"));
-			wishlistService.insertToWishlist(item_id, user_id);
-			request.setAttribute("msg", "Item Added to wishlist Successfully");
+			if (wishlistService.isInWishlist(item_id, user_id) == false) {
+				wishlistService.insertToWishlist(item_id, user_id);
+				request.setAttribute("msg", "Item Added to wishlist Successfully");
+			} else {
+				request.setAttribute("msg", "Item already in wishlist");
+			}
 			return "/displayWishlist.jsp";
 			
 		} catch (DataAccessException e) {

@@ -74,6 +74,7 @@ public interface ItemDAO {
 	public List<ItemBean> showWishlist(int user_id) throws DataAccessException;
 	public void insertToWishlist(int item_id, int user_id) throws DataAccessException;
 	public void deleteFromWishlist(int item_id) throws DataAccessException;
+	boolean isInWishlist(int itemID, int userID) throws DataAccessException;
 	
 	
 }

@@ -280,7 +280,7 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	//FUNCTIONS BELOW ARE FOR WISHLIST
 	
-		public void insertToWishlist(int item_id, int user_id ) {
+		public void insertToWishlist(int item_id, int user_id ) throws DataAccessException{
 			try {
 				Connection con = services.createConnection();
 				PreparedStatement ps = con.prepareStatement(
@@ -309,7 +309,7 @@ public class ItemDAOImpl implements ItemDAO {
 		/* 
 		 * delete item from Wishlist by item_id
 		 */
-		public void deleteFromWishlist(int item_id) {
+		public void deleteFromWishlist(int item_id) throws DataAccessException{
 			Connection con = null;
 			PreparedStatement ps = null;
 			try {
@@ -331,7 +331,7 @@ public class ItemDAOImpl implements ItemDAO {
 		} 
 		
 		
-		public List<ItemBean> showWishlist(int user_id) {
+		public List<ItemBean> showWishlist(int user_id) throws DataAccessException{
 			List<ItemBean> wishList = new ArrayList<ItemBean>();	//for the actual wishList<ItemBean>
 			List<Integer> itemsToSearch = new ArrayList<Integer>();
 			int i;
@@ -370,7 +370,29 @@ public class ItemDAOImpl implements ItemDAO {
 		}
 		
 	
-	
+	public boolean isInWishlist(int itemID, int userID) throws DataAccessException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+					"select * from TBL_WISHLIST where owner_id = ? and item_id = ?");
+			ps.setInt(1, userID);
+			ps.setInt(2,  itemID);
+			rs = ps.executeQuery();
+			if (rs.next()){
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DataAccessException("Cant execute sql", e);
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+			throw new DataAccessException("Unable to locate connection", e);
+		}
+		return false;
+	}
 	
 	private ItemBean createItemBean(ResultSet rs) throws SQLException {
 		ItemBean item = new ItemBean();

@@ -5,4 +5,4 @@ CREATE TABLE TBL_WISHLIST (
 	--CONSTRAINT pk_wishlist PRIMARY KEY (id)
 );
 
-DROP table tbl_wishlist;
+DROP table TBL_WISHLIST;
