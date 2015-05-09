@@ -14,7 +14,15 @@
 	<jsp:include page="includes/header.jsp" />
 	
 	<div class="container">
-		<h1> Check your email for activation link</h1>
+		<form method="post" action="dispatcher"  class="form-signin">
+			<input type="hidden" name="operation" value="browseitems">
+			<c:if test="${msg != null}">
+		    	<p class="bg-success"> ${msg}</p>
+		    </c:if>
+		    <div class="controls" align="CENTER">
+		        <input type="submit" name="Home" value="Home" class="btn btn-primary" /> 
+			</div>
+		</form>
 	</div>
 </body>
 </html>

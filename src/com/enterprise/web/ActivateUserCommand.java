@@ -29,6 +29,7 @@ public class ActivateUserCommand implements Command {
 			userService.updateUserState(id, newState);
 			
 			
+			
 		} catch (UserServiceException e) {
 			e.printStackTrace();
 			
