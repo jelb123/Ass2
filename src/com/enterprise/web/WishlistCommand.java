@@ -31,7 +31,7 @@ public class WishlistCommand implements Command {
 		}
 		
 		try {
-			int item_id = Integer.parseInt(request.getParameter("item"));	
+			//int item_id = Integer.parseInt(request.getParameter("item"));	
 			int user_id = user.getId();
 			
 			

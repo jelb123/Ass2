@@ -25,8 +25,9 @@
    						<h5>${item.title}</h5>
    					</a>
    					<div>
-		                <form method="post" action="./Wishlist">
-		                	<input type="hidden" name="wishListId" value="${item.itemID}">
+		                <form method="post" action="dispatcher">
+		                	<input type="hidden" name="operation" value="addtowishlist" >
+		                	<input type="hidden" name="item" value="${item.itemID}">
 		                	<input type="submit" value="Add to Wishlist" class="btn btn-primary">
 		                </form>
 			                

@@ -291,7 +291,7 @@ public class ItemDAOImpl implements ItemDAO {
 			try {
 				Connection con = services.createConnection();
 				PreparedStatement ps = con.prepareStatement(
-					"insert into TBL_WISHLIST (item_id, ownerID)" +
+					"insert into TBL_WISHLIST (item_id, owner_id)" +
 					" values (?,?)");
 				
 				/*

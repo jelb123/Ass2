@@ -16,7 +16,7 @@ import com.enterprise.dao.DataAccessException;
 
 public class AddWishlistCommand implements Command {
 	
-private static ItemServiceImpl wishlistService;
+	private static ItemServiceImpl wishlistService;
 	
 	public AddWishlistCommand() {
 		wishlistService = new ItemServiceImpl();
@@ -32,7 +32,6 @@ private static ItemServiceImpl wishlistService;
 		try {
 			int user_id = user.getId();
 			int item_id = Integer.parseInt(request.getParameter("item"));
-			
 			wishlistService.insertToWishlist(item_id, user_id);
 			request.setAttribute("msg", "Item Added to wishlist Successfully");
 			return "/displayWishlist.jsp";
