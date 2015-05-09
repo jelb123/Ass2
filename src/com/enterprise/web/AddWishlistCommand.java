@@ -31,8 +31,7 @@ private static ItemServiceImpl wishlistService;
 		
 		try {
 			int user_id = user.getId();
-			int item_id = 0;
-			
+			int item_id = Integer.parseInt(request.getParameter("item"));
 			
 			wishlistService.insertToWishlist(item_id, user_id);
 			request.setAttribute("msg", "Item Added to wishlist Successfully");
