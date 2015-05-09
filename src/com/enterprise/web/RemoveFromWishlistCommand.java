@@ -6,7 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.enterprise.beans.UserBean;
+import com.enterprise.business.exception.ItemServiceException;
 import com.enterprise.business.support.ItemServiceImpl;
+import com.enterprise.dao.DataAccessException;
 
 public class RemoveFromWishlistCommand implements Command {
 	
@@ -18,8 +21,28 @@ public class RemoveFromWishlistCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+			UserBean user = (UserBean) request.getSession().getAttribute("user"); 
+		
+		try {
+			
+			if(user == null){
+				System.out.println("user = null !!\n");
+			}
+			//int user_id = user.getId();
+			int item_id = Integer.parseInt(request.getParameter("item"));
+			wishlistService.deleteFromWishlist(item_id);
+			request.setAttribute("msg", "Item removed from wishlist Successfully");
+			return "/displayWishlist.jsp";
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			request.setAttribute("msg", "REMOVING Item from wishlist Failed");
+			return "/displayWishlist.jsp";	
+		} catch (ItemServiceException e){
+			e.printStackTrace();
+			request.setAttribute("msg", "REMOVING Item from wishlist Failed");
+			return "/displayWishlist.jsp";
+		}
 	}
 
 }
