@@ -17,13 +17,13 @@
 		</center>
 		<form method="post" action="dispatcher" class="form-add">
 			<label> Name: </label>
-			<input placeholder="Name" class="form-add-control" name="name" type="text">
+			<input placeholder="Name" class="form-add-control" name="name" type="text" required="">
 			<label> Category: </label>
-			<input placeholder="Category" class="form-add-control" name="category" type="text">
+			<input placeholder="Category" class="form-add-control" name="category" type="text" required="">
 			<label> Description: </label>
-			<input placeholder="Description" class="form-add-control" name="description" type="text">
+			<input placeholder="Description" class="form-add-control" name="description" type="text" required="">
 			<label>Postal area</label>
-			<input placeholder="Address" class="form-add-control" name="address" type="text">
+			<input placeholder="Address" class="form-add-control" name="address" type="text" required="">
 			<label> Price: </label>
 			<input placeholder="Price" class="form-add-control" name="startPrice" type="number">
 			<div class="row">
