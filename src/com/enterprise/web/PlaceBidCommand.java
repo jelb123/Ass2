@@ -8,15 +8,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.enterprise.beans.ItemBean;
 import com.enterprise.beans.UserBean;
+import com.enterprise.business.ItemService;
+import com.enterprise.business.UserService;
+import com.enterprise.business.exception.ItemServiceException;
+import com.enterprise.business.exception.UserServiceException;
+import com.enterprise.business.support.ItemServiceImpl;
+import com.enterprise.business.support.UserServiceImpl;
 import com.enterprise.dao.ItemDAO;
 import com.enterprise.dao.support.ItemDAOImpl;
+import com.enterprise.mail.SendMail;
+import com.enterprise.mail.UserEmailService;
+import com.enterprise.mail.UserEmailServiceImpl;
+import com.enterprise.mail.exception.UserEmailServiceException;
 
 public class PlaceBidCommand implements Command {
 
-	private static ItemDAO itemDAO;
+	private static ItemService itemService;
+	private static UserService userService;
+	private static UserEmailService emailService;
 	
 	public PlaceBidCommand() {
-		itemDAO = new ItemDAOImpl();
+		itemService = new ItemServiceImpl();
+		userService = new UserServiceImpl();
+		emailService = new UserEmailServiceImpl();
 	}
 	@Override
 	public String execute(HttpServletRequest request,
@@ -30,25 +44,70 @@ public class PlaceBidCommand implements Command {
 			String msg = "Invalid request (User not logged in)";
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
-		} 
+		}
+
 		
-		int itemID = Integer.parseInt(request.getParameter("item"));
-		ItemBean item= itemDAO.getItemById(itemID);
-		UserBean user = (UserBean) request.getSession().getAttribute("user");
-		
-		if (item.getOwnerID() == user.getId()) {
-			String msg = "Cant Bid, You own Item";
+		try {
+			int itemID = Integer.parseInt(request.getParameter("item"));
+			ItemBean item= itemService.getItemById(itemID);
+			UserBean user = (UserBean) request.getSession().getAttribute("user");
+			float minBid = item.getHighestBid() + item.getBidIncrements();
+			
+			if (request.getParameter("bidamount") == null) {
+				String msg = "Need a proper bid!";
+				request.setAttribute("item", item);
+				request.setAttribute("msg", msg);
+				return "/displayItem.jsp";
+			}
+			float newBid = Integer.parseInt(request.getParameter("bidamount"));
+			if (item.getOwnerID() == user.getId()) {
+				String msg = "Cant Bid, You own Item";
+				request.setAttribute("item", item);
+				request.setAttribute("msg", msg);
+				return "/displayItem.jsp";
+			} else if (user.getId() == item.getHighestBidUserID()) {
+				String msg = "Cant Bid, You're the highest bidder";
+				request.setAttribute("item", item);
+				request.setAttribute("msg", msg);
+				return "/displayItem.jsp";
+			} else if (newBid < minBid) {
+				String msg = "Your bid is too low, must be at least " + minBid;
+				request.setAttribute("item", item);
+				request.setAttribute("msg", msg);
+				return "/displayItem.jsp";
+			}
+			
+			itemService.updateBid(itemID, newBid, user.getId());
+			
+			UserBean oldWinner = userService.getUserById(item.getHighestBidUserID());
+			String to = oldWinner.getEmail();
+			String subject = "OutBidded";
+			String url = request.getRequestURL().toString();
+			String text = "You have been outbidded on item: \n" 
+					+ url + "?operation=browseitem&item=" + itemID;
+			emailService.sendEmail(to, subject, text);
+			
+			String msg = "You are now the highest bidder";
 			request.setAttribute("item", item);
 			request.setAttribute("msg", msg);
 			return "/displayItem.jsp";
-		}
-		
-		try {
 			
-		} catch (Exception e) {
-			
+		} catch (ItemServiceException e) {
+			e.printStackTrace();
+			String msg = "Couldnt bid due to exception";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
+		} catch (UserServiceException e) {
+			e.printStackTrace();
+			String msg = "Couldnt bid due to exception";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
+		} catch (UserEmailServiceException e) {
+			e.printStackTrace();
+			String msg = "Couldnt bid due to exception";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		}
-		return null;
 	}
 
 }

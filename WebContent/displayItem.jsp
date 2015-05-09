@@ -60,10 +60,10 @@
 	                            ${item.category}
 	                        </div>
 	                        <h4>
-	                             Reserve Price:
+	                             Current Bid:
 	                        </h4>
 	                        <div class="details-column">
-	                            ${item.reservePrice.price} ${item.reservePrice.currency}
+	                            ${item.highestBid}
 	                        </div>
 	                        <h4>
 								Postal Address:

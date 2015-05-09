@@ -10,15 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.enterprise.beans.ItemBean;
+import com.enterprise.business.ItemService;
+import com.enterprise.business.exception.ItemServiceException;
+import com.enterprise.business.support.ItemServiceImpl;
 import com.enterprise.dao.DataAccessException;
 import com.enterprise.dao.ItemDAO;
 import com.enterprise.dao.support.ItemDAOImpl;
 
 public class DisplayItemsCommand implements Command {
-	private static ItemDAO itemDAO;
+	private static ItemService itemService;
 	
 	public DisplayItemsCommand() {
-		itemDAO = new ItemDAOImpl();
+		itemService = new ItemServiceImpl();
 	}
 	
 	@Override
@@ -26,7 +29,7 @@ public class DisplayItemsCommand implements Command {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 			try {
-				List<ItemBean> allItems = itemDAO.showAllItems();	//getting all the items in the database
+				List<ItemBean> allItems = itemService.showAllItems();	//getting all the items in the database
 				List<ItemBean> items = null;
 				
 				
@@ -40,7 +43,7 @@ public class DisplayItemsCommand implements Command {
 				request.setAttribute("items", items);
 				return "/welcome.jsp";
 				
-			} catch(DataAccessException e) {
+			} catch(ItemServiceException e) {
 				e.printStackTrace();
 				return "/welcome.jsp";
 			}

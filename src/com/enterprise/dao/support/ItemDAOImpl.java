@@ -47,8 +47,8 @@ public class ItemDAOImpl implements ItemDAO {
 			PreparedStatement ps = con.prepareStatement(
 				"insert into TBL_ITEMS (ownerID, title, category, " +
 				"picture, description, address, reservePrice, startPrice, " + 
-				"bidIncrements, endTime)" +
-				" values (?,?,?,?,?,?,?,?,?,?)");
+				"bidIncrements, endTime, highestBid, highest_bid_user_ID)" +
+				" values (?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			/*
 			 * read values in from input form
@@ -65,7 +65,8 @@ public class ItemDAOImpl implements ItemDAO {
 			ps.setFloat(8, itemBean.getStartPrice().getPrice());
 			ps.setFloat(9, itemBean.getBidIncrements());
 			ps.setInt(10, itemBean.getEndTime());
-	
+			ps.setFloat(11, itemBean.getStartPrice().getPrice());
+			ps.setInt(12, itemBean.getOwnerID());
 			
 			int rows = ps.executeUpdate();
 			if (rows < 1) 
@@ -237,16 +238,8 @@ public class ItemDAOImpl implements ItemDAO {
 		try {
 			con = services.createConnection();
 			
-			//updating the table: SET [col-name] = 'newValue' , [col2-name] ...
-			ps = con.prepareStatement(
-					"select * from  TBL_ITEMS where item_id = ?");
-			ps.setFloat(1, bid_value);
-			rs = ps.executeQuery();
-			//store the bean values you read from the database
-			item = createItemBean(rs);					
+				
 			
-			//Check if the bid_value > current database bid_value
-			if (bid_value > item.getHighestBid()){
 				//update to the new database value
 				ps = con.prepareStatement(
 						"update TBL_ITEMS "
@@ -258,7 +251,6 @@ public class ItemDAOImpl implements ItemDAO {
 				ps.executeUpdate();
 				//flag that we have update so we return = 1
 				update = 1;							
-			} 
 			//if it's not, do nothing and return 0;
 		} catch (SQLException e) {
 			throw new DataAccessException("Unable to update the bid value and user_id", e);
