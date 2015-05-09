@@ -33,7 +33,13 @@ public class LoginCommand implements Command {
 			UserBean user = userService.login(username, password);
 
 			if (user == null) {
-				request.setAttribute("loginFailed", "true");
+				request.setAttribute("msg", "Username or Password Incorrect");
+				return "/login.jsp";
+			} else if(user.getAccountState() == 2) {
+				request.setAttribute("msg", "Account is not activated (activate through email link)");
+				return "/login.jsp";
+			} else if(user.getAccountState() == 3) {
+				request.setAttribute("msg", "Your account is banned");
 				return "/login.jsp";
 			} else {
 				session.setAttribute("user", user);
@@ -41,7 +47,7 @@ public class LoginCommand implements Command {
 			}
 		} catch (UserLoginFailedException e) {
 			e.printStackTrace();
-			request.setAttribute("loginFailed", "true");
+			request.setAttribute("msg", "Username or Password Incorrect");
 			return "/login.jsp";			
 		}
 	}

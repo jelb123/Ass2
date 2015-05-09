@@ -19,8 +19,8 @@
 		    <h2 class="form-signin-heading" align="CENTER">
 		        Please Log In
 		    </h2>
-		    <c:if test="${loginFailed == 'true'}">
-		    	<p style="color:RED"> * Login has failed</p>
+		    <c:if test="${msg != null}">
+		    	<p style="color:RED"> ${msg}</p>
 		    </c:if>
 		    <input placeholder="Username" class="form-control" name="username" type="text" required="" />
 		    <input placeholder="Password" class="form-control" name="password" type="password" required="" />
