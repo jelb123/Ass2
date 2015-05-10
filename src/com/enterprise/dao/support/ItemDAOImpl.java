@@ -200,7 +200,7 @@ public class ItemDAOImpl implements ItemDAO {
 			searchString = wildCard + searchString + wildCard;
 			//CHECK IF CORRECT %?% might throw errors hard here!!
 			ps = con.prepareStatement(
-					"select * from TBL_ITEMS where title like ? or description like ? or category like ?");
+					"select * from TBL_ITEMS where lower(title) like lower(?) or lower(description) like lower(?) or lower(category) like lower(?)");
 			ps.setString(1, searchString);
 			ps.setString(2, searchString);
 			ps.setString(3, searchString);
@@ -243,13 +243,14 @@ public class ItemDAOImpl implements ItemDAO {
 			addr 		= wildCard + addr + wildCard;
 			
 			ps = con.prepareStatement(
-					"select * from TBL_ITEMS where title like ? and description like ? and category like ? "
-					+ "and address like ? and startPrice = ?" );
+					"select * from TBL_ITEMS where lower(title) like lower(?) and lower(description) like lower(?) and lower(category) like lower(?) "
+					+ "and lower(address) like lower(?) and highestBid < ? and highestBid > ?" );
 			ps.setString(1, name);
 			ps.setString(2, desc);
 			ps.setString(3, category);
 			ps.setString(4, addr);
-			ps.setFloat(5, start_price);
+			ps.setFloat(5, start_price + 10);
+			ps.setFloat(6, start_price - 10);
 			
 			rs = ps.executeQuery();
 			while (rs.next())

@@ -24,8 +24,8 @@
 			<input placeholder="Description" class="form-add-control" name="description" type="text" required="">
 			<label>Postal area</label>
 			<input placeholder="Address" class="form-add-control" name="address" type="text" required="">
-			<label> Price: </label>
-			<input placeholder="Price" class="form-add-control" name="startPrice" type="number">
+			<label> Current Bid ( +/- 10 ): </label>
+			<input placeholder="Current Bid ( +/- 10 )" class="form-add-control" name="startPrice" type="number">
 			<div class="row">
 		    	<div class="col-sm-8">
 		       		<label></label>
