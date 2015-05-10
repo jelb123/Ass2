@@ -20,7 +20,7 @@ import com.enterprise.dao.ItemDAO;
 public class ItemDAOImpl implements ItemDAO {
 	
 	/*
-	 * Initialisation of bullshit variables that are needed for connected to the Database
+	 * Initialisation variables that are needed for connected to the Database
 	 */
 	private DBConnectionFactory services;
 	public ItemDAOImpl() {

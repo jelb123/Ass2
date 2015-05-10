@@ -9,7 +9,7 @@ insert into TBL_ITEMS values (
 	900.0, 
 	200.0, 
 	10.0,
-	30, 
+	CURRENT_TIMESTAMP, 
 	200.0, 
 	2, 
 	true
@@ -26,7 +26,7 @@ insert into TBL_ITEMS values (
 	900.0, 
 	200.0, 
 	10.0,
-	30, 
+	10.0 2015-05-10 17:30:33.12, 
 	200.0, 
 	2, 
 	true
@@ -65,6 +65,9 @@ insert into TBL_ITEMS values (
 	2, 
 	true
 );
+
+
+
 
 insert into TBL_ITEMS values (
 	5, 
