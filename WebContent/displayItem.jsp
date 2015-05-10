@@ -46,6 +46,7 @@
 									    </div>
 					                </form>
 			                	</c:when>
+			                	<c:when test="${item.isActive == false && item.highestBidUserID != item.ownerID }"></c:when>
 		                		<c:otherwise>
 		                			<p class="bg-warning">${msg}</p>
 		                		</c:otherwise>

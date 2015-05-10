@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.enterpise.auction.AuctionParser;
-import com.enterpise.auction.AuctionParserFactory;
+import com.enterprise.auctions.AuctionParser;
+import com.enterprise.auctions.AuctionParserFactory;
 
 /**
  * Servlet implementation class ControllerServlet
@@ -40,6 +40,8 @@ public class ControllerServlet extends HttpServlet {
 		commands.put("activate", new ActivateUserCommand(1));
 		commands.put("updateuserdetails", new UpdateUserDetailsCommand());
 		commands.put("logout", new LogoutCommand());
+		commands.put("acceptbid", new AcceptBidCommand());
+		commands.put("rejectbid", new RejectBidCommand());
 		
 		commands.put("adminshowusers", new AdminShowUsersCommand());
 		commands.put("banuser", new ActivateUserCommand(3));

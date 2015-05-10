@@ -1,4 +1,4 @@
-package com.enterpise.auction;
+package com.enterprise.auctions;
 
 public class AuctionParserFactory {
 	private static AuctionParserFactory factory = null;

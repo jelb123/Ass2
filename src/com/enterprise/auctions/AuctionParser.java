@@ -1,4 +1,4 @@
-package com.enterpise.auction;
+package com.enterprise.auctions;
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;

@@ -141,7 +141,7 @@ public class ItemDAOImpl implements ItemDAO {
 		try {
 			con = services.createConnection();
 			ps = con.prepareStatement(
-					"select * from TBL_ITEMS where is isActive = ?");	
+					"select * from TBL_ITEMS where isActive = ?");	
 			ps.setBoolean(1, true);
 			rs = ps.executeQuery();
 			while (rs.next())
@@ -517,7 +517,7 @@ public class ItemDAOImpl implements ItemDAO {
 		
 		
 		item.setBidIncrements(rs.getFloat("bidIncrements"));
-		item.setEndTime(rs.getInt("endTime"));
+		item.setEndTime(rs.getTimestamp("endTime"));
 		item.setHighestBid(rs.getFloat("highestBid"));
 		item.setHighestBidUserID(rs.getInt("highest_bid_user_ID"));
 		item.setIsActive(rs.getBoolean("isActive"));
