@@ -47,7 +47,7 @@ public class AuctionTask implements Runnable{
 				String winnerEmail = winner.getEmail();
 				
 				//checking whether or not the highest bid is greater than the reserve price
-				if(item.getHighestBid() >= item.getReservePrice().getPrice()) {
+				if(item.getHighestBid() >= item.getReservePrice().getPrice() && item.getOwnerID() != item.getHighestBidUserID()) {
 					
 					String toWinner = winnerEmail;
 					String subject = "You have won your auction!";

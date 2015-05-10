@@ -44,6 +44,11 @@ public class AddWishlistCommand implements Command {
 			}
 			return "/displayWishlist.jsp";
 			
+		}  catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			request.setAttribute("msg", "Adding Item to wishlist Failed");

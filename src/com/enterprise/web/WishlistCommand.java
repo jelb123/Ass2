@@ -40,6 +40,11 @@ public class WishlistCommand implements Command {
 			request.setAttribute("items", wishList);
 			return "/displayWishlist.jsp";
 		
+		}  catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		} catch(ItemServiceException e){
 			e.printStackTrace();
 			return "/welcome.jsp";

@@ -49,6 +49,11 @@ public class HaltAuctionCommand implements Command {
 			item = itemService.haltAuction(itemID);
 			request.setAttribute("item", item);
 			return "browseitem";
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		} catch (ItemServiceException e) {
 			e.printStackTrace();
 			String msg = "Auction cant be halted";

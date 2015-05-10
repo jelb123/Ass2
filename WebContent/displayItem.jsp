@@ -46,7 +46,20 @@
 									    </div>
 					                </form>
 			                	</c:when>
-			                	<c:when test="${item.isActive == false && item.highestBidUserID != item.ownerID }"></c:when>
+			                	<c:when test="${item.isActive == false && item.highestBidUserID != item.ownerID && item.highestBid < item.reservePrice.price }">
+			                		<div class="row">
+					                	<form method="post" action="dispatcher">
+						                	<input type="hidden" name="operation" value="acceptbid" >
+						                	<input type="hidden" name="item" value="${item.itemID}">
+						                	<input type="submit" value="Accept Bid" class="btn btn-danger">
+						                </form>
+						                <form method="post" action="dispatcher">
+						                	<input type="hidden" name="operation" value="rejectbid" >
+						                	<input type="hidden" name="item" value="${item.itemID}">
+						                	<input type="submit" value="Reject Bid" class="btn btn-danger">
+						                </form>
+				              		</div>
+			                	</c:when>
 		                		<c:otherwise>
 		                			<p class="bg-warning">${msg}</p>
 		                		</c:otherwise>

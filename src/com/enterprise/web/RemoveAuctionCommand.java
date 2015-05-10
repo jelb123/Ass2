@@ -41,7 +41,13 @@ public class RemoveAuctionCommand implements Command {
 		int itemID = Integer.parseInt(request.getParameter("item"));
 		try {
 			itemService.delete(itemID);
+			itemService.deleteFromWishlist(itemID);
 			String msg = "Auction has been removed";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
+		}  catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		} catch (ItemServiceException e) {

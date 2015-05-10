@@ -80,18 +80,26 @@ public class PlaceBidCommand implements Command {
 			itemService.updateBid(itemID, newBid, user.getId());
 			
 			UserBean oldWinner = userService.getUserById(item.getHighestBidUserID());
-			String to = oldWinner.getEmail();
-			String subject = "OutBidded";
-			String url = request.getRequestURL().toString();
-			String text = "You have been outbidded on item: \n" 
-					+ url + "?operation=browseitem&item=" + itemID;
-			emailService.sendEmail(to, subject, text);
+			
+			if (oldWinner.getId() != item.getOwnerID()) {
+				String to = oldWinner.getEmail();
+				String subject = "OutBidded";
+				String url = request.getRequestURL().toString();
+				String text = "You have been outbidded on item: \n" 
+						+ url + "?operation=browseitem&item=" + itemID;
+				emailService.sendEmail(to, subject, text);
+			}
 			
 			String msg = "You are now the highest bidder";
 			request.setAttribute("item", item);
 			request.setAttribute("msg", msg);
 			return "/displayItem.jsp";
 			
+		}  catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		} catch (ItemServiceException e) {
 			e.printStackTrace();
 			String msg = "Couldnt bid due to exception";

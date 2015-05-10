@@ -31,6 +31,11 @@ public class BrowseItemCommand implements Command {
 			return "/displayItem.jsp";
 			
 			
+		}  catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		} catch(DataAccessException e) {
 			e.printStackTrace();
 			return "/welcome.jsp";

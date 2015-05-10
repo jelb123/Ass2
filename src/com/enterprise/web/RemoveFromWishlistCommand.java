@@ -34,6 +34,11 @@ public class RemoveFromWishlistCommand implements Command {
 			request.setAttribute("msg", "Item removed from wishlist Successfully");
 			return "/displayWishlist.jsp";
 			
+		}  catch (NumberFormatException e) {
+			e.printStackTrace();
+			String msg = "Item doesnt exist (id is invalid)";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			request.setAttribute("msg", "REMOVING Item from wishlist Failed");
