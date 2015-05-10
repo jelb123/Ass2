@@ -31,7 +31,7 @@
 				<form method="post" action="dispatcher">
 					<input type="hidden" name="operation" value="banuser">
 					<input type="hidden" name="id" value="${account.id}">
-					<td> ${account.username} </td>
+					<td> <a href="dispatcher?operation=displayprofile&id=${account.id}"> ${account.username} </a></td>
 					<td> ${account.id} </td>
 					<td> <c:if test="${account.accountState == 1}"> Active </c:if> 
 					<c:if test="${account.accountState == 2}"> Pending </c:if>

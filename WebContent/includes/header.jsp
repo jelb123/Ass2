@@ -44,19 +44,24 @@
 		                        	<a href="dispatcher?operation=finduserbids">
 		                        		My Bids
 		                        	</a>
-		                        </li>		                        
-		                        <li>
-		                        	<a href="dispatcher?operation=logout">
-		                        		Logout
-		                        	</a>
 		                        </li>
-		                        <c:if test="${user.isAdmin == 'true'}">
+		                        <li>
+		                    		<a href="dispatcher?operation=displayprofile">
+		                        		User Profile
+		                        	</a>
+								</li>
+								<c:if test="${user.isAdmin == 'true'}">
 			                        <li>
 			                        	<a href="dispatcher?operation=adminshowusers">
 			                            	Show Users
 			                            </a>
 			                        </li>
-			                    </c:if>
+			                    </c:if>                      
+		                        <li>
+		                        	<a href="dispatcher?operation=logout">
+		                        		Logout
+		                        	</a>
+		                        </li>
 		                    </ul>
 	                    </c:when>
 	                    <c:when test="${user == null}">
