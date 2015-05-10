@@ -40,7 +40,7 @@ public class AuctionTask implements Runnable{
 					//NOTIFY OWNER AND OWNER WILL EITHER ACCEPT OR REJECT THE BID
 					//CHECK TO MAKE SURE THAT THE OWNER ISNT THE HIGHEST BIDDER I.E. NO ONE HAS BID ON THE ITEM
 				}
-				
+				//
 			}
 			
 			
