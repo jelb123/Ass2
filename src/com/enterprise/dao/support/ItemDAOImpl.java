@@ -55,12 +55,15 @@ public class ItemDAOImpl implements ItemDAO {
 			 */
 			//ps.setInt(11, itemBean.getId()); the item_id is automatically generated
 			
+			String address = itemBean.getAddress().getStreetAddress() + ", " + itemBean.getAddress().getCity() + ", " + itemBean.getAddress().getState() +
+					", " + itemBean.getAddress().getCountry() + ", " + itemBean.getAddress().getPostCode();
+			
 			ps.setInt(1, itemBean.getOwnerID());
 			ps.setString(2, itemBean.getTitle());
 			ps.setString(3, itemBean.getCategory());
 			ps.setString(4, itemBean.getPicture());
 			ps.setString(5, itemBean.getDescription());
-			ps.setString(6, itemBean.getAddress().getStreetAddress());
+			ps.setString(6, address);
 			ps.setFloat(7, itemBean.getReservePrice().getPrice());
 			ps.setFloat(8, itemBean.getStartPrice().getPrice());
 			ps.setFloat(9, itemBean.getBidIncrements());

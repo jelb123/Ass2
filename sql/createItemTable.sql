@@ -5,7 +5,7 @@ create table TBL_ITEMS (
 	category VARCHAR(30),
 	picture VARCHAR(200),
 	description VARCHAR(200),
-	address VARCHAR(100),
+	address VARCHAR(300),
 	reservePrice FLOAT,
 	startPrice FLOAT,
 	bidIncrements FLOAT,
