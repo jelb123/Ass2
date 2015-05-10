@@ -52,6 +52,16 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
+	public List<ItemBean> getActiveItems() throws ItemServiceException {
+		try {
+			List<ItemBean> itemList = itemDAO.getActiveItems();
+			return itemList;
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to return list of <ItemBean> held in db", e);
+		} 
+	}
+	
+	@Override
 	public List<ItemBean> findItemByString(String searchString) throws ItemServiceException {
 		try {
 			List<ItemBean> itemList = itemDAO.findItemByString(searchString);

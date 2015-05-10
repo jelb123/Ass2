@@ -29,6 +29,12 @@ public interface ItemService {
 	public List<ItemBean> showAllItems() throws ItemServiceException;
 	
 	/**
+	 * Returns a list of all active auction items in the database
+	 * @return a list<ItemBean>
+	 * @throws DataAccessException
+	 */
+	public List<ItemBean> getActiveItems() throws ItemServiceException;
+	/**
 	 * This is used when "search" button is activated, the input string is searched in the database
 	 * if it is contained in "title" "category" "description"
 	 * @param searchString

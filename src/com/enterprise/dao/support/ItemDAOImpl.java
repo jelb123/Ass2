@@ -64,7 +64,7 @@ public class ItemDAOImpl implements ItemDAO {
 			ps.setFloat(7, itemBean.getReservePrice().getPrice());
 			ps.setFloat(8, itemBean.getStartPrice().getPrice());
 			ps.setFloat(9, itemBean.getBidIncrements());
-			ps.setInt(10, itemBean.getEndTime());
+			ps.setTimestamp(10, itemBean.getEndTime());
 			ps.setFloat(11, itemBean.getStartPrice().getPrice());
 			ps.setInt(12, itemBean.getOwnerID());
 			ps.setBoolean(13, true);
@@ -133,7 +133,31 @@ public class ItemDAOImpl implements ItemDAO {
 		return list;
 	}
 	
-	
+	public List<ItemBean> getActiveItems() throws DataAccessException {
+		List<ItemBean> list = new ArrayList<ItemBean>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+					"select * from TBL_ITEMS where is isActive = ?");	
+			ps.setBoolean(1, true);
+			rs = ps.executeQuery();
+			while (rs.next())
+				list.add(createItemBean(rs));
+		} catch (SQLException e) {
+			throw new DataAccessException("Unable to find all items", e);
+		} catch (ServiceLocatorException e) {
+			throw new DataAccessException("Unable to locate connection", e);
+		} finally {
+			close(rs);
+			close(ps);
+			close(con);
+		}
+		return list;
+		
+	}
 	/*
 	 * Finds and returns the itemBean that contains "string/catagory/desc"
 	 */

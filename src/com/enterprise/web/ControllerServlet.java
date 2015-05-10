@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.enterpise.auction.AuctionParser;
+import com.enterpise.auction.AuctionParserFactory;
+
 /**
  * Servlet implementation class ControllerServlet
  */
@@ -21,6 +24,9 @@ public class ControllerServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     private Map<String,Command> commands;   
+    
+    private AuctionParser auctionParser;
+    private Thread auctionThread;
 
     /**
 	 * @see Servlet#init(ServletConfig)
@@ -50,6 +56,13 @@ public class ControllerServlet extends HttpServlet {
 		commands.put("displayItemsList", new DisplayItemsCommand());
 		commands.put("advancedSearch", new AdvancedSearchCommand());
 		commands.put("PAGE_NOT_FOUND", new ErrorCommand());
+		
+		//start the auction parser runnables to run in a separate thread
+		auctionParser = AuctionParserFactory.getAuctionParserService();
+		auctionThread = new Thread(auctionParser);
+		auctionThread.setDaemon(true);	//Run in background
+		auctionThread.start();
+		
 		
 		// TODO rest of command mapping
 	}

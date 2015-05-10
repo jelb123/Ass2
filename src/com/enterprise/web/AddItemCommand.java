@@ -1,7 +1,9 @@
 package com.enterprise.web;
 
 import java.io.IOException;
-
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -73,10 +75,17 @@ public class AddItemCommand implements Command {
 			}
 			item.setAuctionLength(auctionTime);
 			
-			//Date now = new Date();
 			
+			//Setting the endtime, using the time in millis since January 1 1970
+			Date current = new Date();
+			Timestamp startTime = new Timestamp(current.getTime());
+			Calendar cal = Calendar.getInstance();
+			cal.setTimeInMillis(startTime.getTime());
+			cal.add(Calendar.MINUTE,auctionTime);
+			Timestamp endTime = new Timestamp(cal.getTime().getTime());
+			item.setEndTime(endTime);
 			
-			item.setEndTime(auctionTime);	//TEMPORARY
+			//item.setEndTime(auctionTime);	//TEMPORARY
 			
 			/*
 			private int itemID;

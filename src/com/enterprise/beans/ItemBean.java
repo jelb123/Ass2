@@ -1,6 +1,7 @@
 package com.enterprise.beans;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class ItemBean implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -16,7 +17,7 @@ public class ItemBean implements Serializable{
 	private PriceBean startPrice;
 	private float bidIncrements;
 	private int auctionLength;	//Length of auction in minutes > 3, < 60 
-	private int endTime;		//end time = current time + auction length
+	private Timestamp endTime;		//end time = current time + auction length
 	private float highestBid;
 	private int highestBidUserID;
 	private boolean isActive;
@@ -136,14 +137,16 @@ public class ItemBean implements Serializable{
 	public void setHighestBidUserID(int highestBidUserID) {
 		this.highestBidUserID = highestBidUserID;
 	}
-	
-	public int getEndTime() {
+
+	public Timestamp getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(int endTime) {
+	public void setEndTime(Timestamp endTime) {
 		this.endTime = endTime;
 	}
+	
+	
 	
 	
 	

@@ -33,6 +33,13 @@ public interface ItemDAO {
 	public List<ItemBean> showAllItems() throws DataAccessException;
 	
 	/**
+	 * Returns a list of all the acitve items in the database i.e. items that are currently up for auction
+	 * 
+	 * @return a list of all active items
+	 * @throws DataAccessException
+	 */
+	public List<ItemBean> getActiveItems() throws DataAccessException;
+	/**
 	 * This is used when "search" button is activated, the input string is searched in the database
 	 * if it is contained in "title" "category" "description"
 	 * @param searchString
