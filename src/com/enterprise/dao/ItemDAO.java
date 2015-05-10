@@ -59,12 +59,16 @@ public interface ItemDAO {
 	 */
 	public List<ItemBean> advancedSearch(String name, String desc, String category, String addr, float start_price) throws DataAccessException;
 	
+	public List<ItemBean> getItemsByUserID(int id) throws DataAccessException;
+	
+	public List<ItemBean> getItemsByBidderID(int id) throws DataAccessException;
+	
 	/**
 	 * Simply retrieves the itemBean that is equal to the id passed in (item_id)
 	 * @param id refers to the item_id
 	 * @return itemBean that contains this item_id
 	 */
-	public ItemBean getItemById(int id) throws DataAccessException;;
+	public ItemBean getItemById(int id) throws DataAccessException;
 	
 	/**
 	 * Updates the database item if and only if the NEW bid_value > then the CURRENT big_value in the database  

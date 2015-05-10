@@ -23,19 +23,21 @@
 				<th> Username </th>
 				<th> Id </th>
 				<th> Account Status </th>
+				<th> Account Type </th>
 				<th> 	</th>
 			</tr>
-			<c:forEach var="user" items="${userslist}" varStatus="i">
+			<c:forEach var="account" items="${userslist}" varStatus="i">
 			<tr>
 				<form method="post" action="dispatcher">
 					<input type="hidden" name="operation" value="banuser">
-					<input type="hidden" name="id" value="${user.id}">
-					<td> ${user.username} </td>
-					<td> ${user.id} </td>
-					<td> <c:if test="${user.accountState == 1}"> Active </c:if> 
-					<c:if test="${user.accountState == 2}"> Pending </c:if>
-					<c:if test="${user.accountState == 3}"> Banned </c:if>
-					<td> <c:if test="${user.accountState != 3 && user.isAdmin == false}"> <input type="submit" name="Ban User" value="Ban User" class="btn btn-danger btn-sm" /></c:if> </td>
+					<input type="hidden" name="id" value="${account.id}">
+					<td> ${account.username} </td>
+					<td> ${account.id} </td>
+					<td> <c:if test="${account.accountState == 1}"> Active </c:if> 
+					<c:if test="${account.accountState == 2}"> Pending </c:if>
+					<c:if test="${account.accountState == 3}"> Banned </c:if></td>
+					<td> <c:choose><c:when test="${account.isAdmin == true}"> Admin</c:when><c:otherwise>User</c:otherwise></c:choose></td>
+					<td> <c:if test="${account.accountState != 3 && account.isAdmin == false}"> <input type="submit" name="Ban User" value="Ban User" class="btn btn-danger btn-sm" /></c:if> </td>
 				</form>
 			</tr>	
 		

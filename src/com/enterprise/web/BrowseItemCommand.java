@@ -27,6 +27,7 @@ public class BrowseItemCommand implements Command {
 			System.out.println(request.getParameter("item"));
 			ItemBean item = itemDAO.getItemById(itemID);
 			
+			System.out.println("reserve: " + item.getReservePrice().getPrice());
 			request.setAttribute("item", item);
 			return "/displayItem.jsp";
 			

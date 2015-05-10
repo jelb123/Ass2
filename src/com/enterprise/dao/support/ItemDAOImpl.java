@@ -267,7 +267,62 @@ public class ItemDAOImpl implements ItemDAO {
 		return list;
 	}
 	
+	public List<ItemBean> getItemsByUserID(int id) throws DataAccessException {
+		List<ItemBean> list = new ArrayList<ItemBean>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+					"select * from TBL_ITEMS where ownerID = ?");	
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			while (rs.next())
+				list.add(createItemBean(rs));
+		} catch (SQLException e) {
+			throw new DataAccessException("Unable to find all items", e);
+		} catch (ServiceLocatorException e) {
+			throw new DataAccessException("Unable to locate connection", e);
+		} finally {
+			close(rs);
+			close(ps);
+			close(con);
+		}
+		return list;
+		
+	}	
 	
+	public List<ItemBean> getItemsByBidderID(int id) throws DataAccessException {
+		List<ItemBean> list = new ArrayList<ItemBean>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ItemBean item = null;
+		try {
+			con = services.createConnection();
+			ps = con.prepareStatement(
+					"select * from TBL_ITEMS where highest_bid_user_ID = ?");	
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				item = createItemBean(rs);
+				if (item.getOwnerID() != item.getHighestBidUserID()) {
+					list.add(item);
+				}
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException("Unable to find all items", e);
+		} catch (ServiceLocatorException e) {
+			throw new DataAccessException("Unable to locate connection", e);
+		} finally {
+			close(rs);
+			close(ps);
+			close(con);
+		}
+		return list;
+		
+	}	
 	
 	public ItemBean getItemById(int id){
 		ItemBean item = null;
@@ -416,8 +471,9 @@ public class ItemDAOImpl implements ItemDAO {
 					"delete from TBL_WISHLIST where item_id=?");
 				ps.setInt(1, item_id);
 				int rows = ps.executeUpdate();
+				System.out.println("number of rows: " + rows);
 				if (rows < 1) 
-					throw new DataAccessException("ItemBean: " + item_id + " not deleted from wishlist");
+					System.out.println("ItemBean: " + item_id + " not deleted from wishlist");
 			} catch (ServiceLocatorException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
@@ -495,7 +551,8 @@ public class ItemDAOImpl implements ItemDAO {
 	private ItemBean createItemBean(ResultSet rs) throws SQLException {
 		ItemBean item = new ItemBean();
 		AddressBean address = new AddressBean();
-		PriceBean price = new PriceBean();
+		PriceBean resPrice = new PriceBean();
+		PriceBean startPrice = new PriceBean();
 		
 		//Grab address of item and package it up
 		address.setStreetAddress(rs.getString("address"));
@@ -510,10 +567,11 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setDescription(rs.getString("description"));
 		
 		//Grab price of item and package to Bean
-		price.setPrice(rs.getFloat("reservePrice"));
-		item.setReservePrice(price);
-		price.setPrice(rs.getFloat("startPrice"));
-		item.setStartPrice(price);
+		resPrice.setPrice(rs.getFloat("reservePrice"));
+		item.setReservePrice(resPrice);
+		
+		startPrice.setPrice(rs.getFloat("startPrice"));
+		item.setStartPrice(startPrice);
 		
 		
 		item.setBidIncrements(rs.getFloat("bidIncrements"));

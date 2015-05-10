@@ -52,7 +52,7 @@ public class AuctionTask implements Runnable{
 					String toWinner = winnerEmail;
 					String subject = "You have won your auction!";
 					String url = "http://localhost:8080/Ass2/dispatcher";
-					String text = "You have been won the item: \n" 
+					String text = "You have won the item: \n" 
 							+ url + "?operation=browseitem&item=" + item.getItemID()
 							+ "\n\n Your bid was: " + item.getHighestBid();
 					emailService.sendEmail(toWinner, subject, text);

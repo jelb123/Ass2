@@ -16,7 +16,7 @@
 			<p></p>
 			<form method="post" action="dispatcher"  class="form-signin">
 		    	<input type="hidden" name="operation" value="displayItemsList">
-				<input type="submit" class="btn btn-success" name="Back to Homepage" value="Back to Homepage">;
+				<input type="submit" class="btn btn-success" name="Back to Homepage" value="Back to Homepage">
 			</form>
 			
 		</center>

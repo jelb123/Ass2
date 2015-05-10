@@ -36,6 +36,16 @@
 		                            </a>
 		                        </li>
 		                        <li>
+		                        	<a href="dispatcher?operation=finduseritems">
+		                        		My Items
+		                        	</a>
+		                        </li>
+		                        <li>
+		                        	<a href="dispatcher?operation=finduserbids">
+		                        		My Bids
+		                        	</a>
+		                        </li>		                        
+		                        <li>
 		                        	<a href="dispatcher?operation=logout">
 		                        		Logout
 		                        	</a>

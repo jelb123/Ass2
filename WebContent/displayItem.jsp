@@ -13,7 +13,7 @@
 	<jsp:include page="includes/header.jsp" />
 	<div class="container">
 		<c:if test="${item.isActive == false}">
-			<h3 class="bg-warning">This auction is already over</h3>
+			<h3 class="bg-warning">This auction is already over <c:if test="${user.id == item.highestBidUserID && user.id != item.ownerID}"> (You Won!) </c:if></h3>
 			
 		</c:if>
 		<div class="row">
@@ -35,7 +35,7 @@
 			                </form>
 			                <br><br>
 			                <c:choose>
-							    <c:when test="${msg == null && item.isActive == true}">
+							    <c:when test="${msg == null && item.isActive == true && user.id != item.ownerID}">
 					                <form method="post" action="dispatcher">
 					                	<input type="hidden" name="operation" value="putBid">
 					                	<input type="hidden" name="item" value="${item.itemID}">
@@ -46,7 +46,7 @@
 									    </div>
 					                </form>
 			                	</c:when>
-			                	<c:when test="${item.isActive == false && item.highestBidUserID != item.ownerID && item.highestBid < item.reservePrice.price }">
+			                	<c:when test="${item.isActive == false && user.id == item.ownerID && item.highestBidUserID != item.ownerID && item.highestBid < item.reservePrice.price }">
 			                		<div class="row">
 					                	<form method="post" action="dispatcher">
 						                	<input type="hidden" name="operation" value="acceptbid" >
@@ -59,6 +59,9 @@
 						                	<input type="submit" value="Reject Bid" class="btn btn-danger">
 						                </form>
 				              		</div>
+			                	</c:when>
+			                	<c:when test="${user.id == item.ownerID}">
+			                		<p class="bg-warning">Cant bid, you're the owner</p>
 			                	</c:when>
 		                		<c:otherwise>
 		                			<p class="bg-warning">${msg}</p>

@@ -42,9 +42,6 @@ public class RemoveAuctionCommand implements Command {
 		try {
 			itemService.delete(itemID);
 			itemService.deleteFromWishlist(itemID);
-			String msg = "Auction has been removed";
-			request.setAttribute("msg", msg);
-			return "/displayMsg.jsp";
 		}  catch (NumberFormatException e) {
 			e.printStackTrace();
 			String msg = "Item doesnt exist (id is invalid)";
@@ -56,6 +53,11 @@ public class RemoveAuctionCommand implements Command {
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		}
+		
+		
+		String msg = "Auction has been removed";
+		request.setAttribute("msg", msg);
+		return "/displayMsg.jsp";
 	}
 
 }

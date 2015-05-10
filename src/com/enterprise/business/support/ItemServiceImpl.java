@@ -83,7 +83,26 @@ public class ItemServiceImpl implements ItemService{
 			throw new ItemServiceException("Unable to find item in ADVANCED SEARCH", e);
 		} 
 	}
+	
+	@Override
+	public List<ItemBean> getItemsByUserID(int id) throws ItemServiceException {
+		try {
+			List<ItemBean> itemList = itemDAO.getItemsByUserID(id);
+			return itemList;
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to return list of <ItemBean> held in db", e);
+		} 
+	}
 
+	public List<ItemBean> getItemsByBidderID(int id) throws ItemServiceException {
+		try {
+			List<ItemBean> itemList = itemDAO.getItemsByBidderID(id);
+			return itemList;
+		} catch (DataAccessException e) {
+			throw new ItemServiceException("Unable to return list of <ItemBean> held in db", e);
+		} 
+	}
+	
 	@Override
 	public ItemBean getItemById(int id) throws ItemServiceException {
 		try {

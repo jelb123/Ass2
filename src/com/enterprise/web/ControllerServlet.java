@@ -42,6 +42,8 @@ public class ControllerServlet extends HttpServlet {
 		commands.put("logout", new LogoutCommand());
 		commands.put("acceptbid", new AcceptBidCommand());
 		commands.put("rejectbid", new RejectBidCommand());
+		commands.put("finduseritems", new FindUsersItems());
+		commands.put("finduserbids", new FindUserBids());
 		
 		commands.put("adminshowusers", new AdminShowUsersCommand());
 		commands.put("banuser", new ActivateUserCommand(3));

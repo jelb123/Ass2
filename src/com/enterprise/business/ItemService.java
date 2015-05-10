@@ -54,6 +54,11 @@ public interface ItemService {
 	 */
 	public List<ItemBean> advancedSearch(String name, String desc, String category, String addr, float start_price) throws ItemServiceException;
 	
+	public List<ItemBean> getItemsByUserID(int id) throws ItemServiceException;
+	
+	public List<ItemBean> getItemsByBidderID(int id) throws ItemServiceException;
+	
+	
 	/**
 	 * Simply retrieves the itemBean that is equal to the id passed in (item_id)
 	 * @param id refers to the item_id

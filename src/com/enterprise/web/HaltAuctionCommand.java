@@ -15,12 +15,15 @@ import com.enterprise.business.support.ItemServiceImpl;
 import com.enterprise.business.support.UserServiceImpl;
 import com.enterprise.mail.UserEmailService;
 import com.enterprise.mail.UserEmailServiceImpl;
+import com.enterprise.mail.exception.UserEmailServiceException;
 
 public class HaltAuctionCommand implements Command {
 	private static ItemService itemService;
+	private static UserEmailService emailService;
 	
 	public HaltAuctionCommand() {
 		itemService = new ItemServiceImpl();
+		emailService = new UserEmailServiceImpl();
 	}
 	@Override
 	public String execute(HttpServletRequest request,
@@ -48,7 +51,20 @@ public class HaltAuctionCommand implements Command {
 		try {
 			item = itemService.haltAuction(itemID);
 			request.setAttribute("item", item);
+			
+			int id = user.getId();
+			String url = request.getRequestURL().toString();
+			String to = request.getParameter("email");
+			String subject = "Account Activation";
+			String text = "Your auction has been stopped by an admin for the item: \n" 
+					+ url + "?operation=browseitem&item=" + item.getItemID();
+			
+			emailService.sendEmail(to, subject, text);
+			
+			
 			return "browseitem";
+			
+			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 			String msg = "Item doesnt exist (id is invalid)";
@@ -59,6 +75,10 @@ public class HaltAuctionCommand implements Command {
 			String msg = "Auction cant be halted";
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
+		} catch (UserEmailServiceException e) {
+			e.printStackTrace();
+			System.out.println("Auction halted but email not sent");
+			return "browseitem";
 		}
 	}
 
