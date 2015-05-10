@@ -60,7 +60,7 @@ public class HaltAuctionCommand implements Command {
 			int id = user.getId();
 			String url = request.getRequestURL().toString();
 			String to = owner.getEmail();
-			String subject = "Account Activation";
+			String subject = "Your Auction has been stopped";
 			String text = "Your auction has been stopped by an admin for the item: \n" 
 					+ url + "?operation=browseitem&item=" + item.getItemID();
 			

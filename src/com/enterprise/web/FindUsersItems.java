@@ -31,7 +31,7 @@ public class FindUsersItems implements Command {
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		}
-	
+		String msg = null;
 		try {
 			UserBean user = (UserBean) request.getSession().getAttribute("user");
 			int id = user.getId();
@@ -46,10 +46,18 @@ public class FindUsersItems implements Command {
 				items = allItems;
 			}
 			
+			if (items == null || items.isEmpty()) {
+				msg = "You have not added any items";
+			} else {
+				msg = "Items you have added: ";
+			}
+			
+			request.setAttribute("msg", msg);
 			request.setAttribute("items", items);
 			return "/welcome.jsp";
 			
 		} catch(ItemServiceException e) {
+			msg = "Cant display items";
 			e.printStackTrace();
 			return "/welcome.jsp";
 		}

@@ -63,7 +63,7 @@ public class RemoveAuctionCommand implements Command {
 			int id = user.getId();
 			String url = request.getRequestURL().toString();
 			String to = owner.getEmail();
-			String subject = "Account Activation";
+			String subject = "Your Auction has been removed";
 			String text = "Your auction has been removed by an admin for the item: \n\t\t" 
 					+ item.getTitle();
 			

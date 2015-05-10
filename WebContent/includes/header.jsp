@@ -46,7 +46,7 @@
 		                        	</a>
 		                        </li>
 		                        <li>
-		                    		<a href="dispatcher?operation=displayprofile">
+		                    		<a href="dispatcher?operation=displayprofile&id=${user.id}">
 		                        		User Profile
 		                        	</a>
 								</li>

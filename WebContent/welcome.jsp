@@ -11,7 +11,10 @@
 </head>
 <body>
 	<jsp:include page="includes/header.jsp" />
-	
+	<c:if test="${msg != null}">
+		<h2 align="center"> ${msg}</h2>
+	</c:if>
+
 	<div class="row">
 	<c:forEach var="item" items="${items}" varStatus="i">
 		<c:if test="${i.index % 5 == 0}">

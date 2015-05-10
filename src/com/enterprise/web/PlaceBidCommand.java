@@ -102,17 +102,22 @@ public class PlaceBidCommand implements Command {
 			return "/displayMsg.jsp";
 		} catch (ItemServiceException e) {
 			e.printStackTrace();
-			String msg = "Couldnt bid due to exception";
+			String msg = "Error: Invalid bid";
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		} catch (UserServiceException e) {
 			e.printStackTrace();
-			String msg = "Couldnt bid due to exception";
+			String msg = "Error: Invalid bid";
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		} catch (UserEmailServiceException e) {
 			e.printStackTrace();
-			String msg = "Couldnt bid due to exception";
+			String msg = "Error: Invalid bid";
+			request.setAttribute("msg", msg);
+			return "/displayMsg.jsp";
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			String msg = "Error: Invalid bid";
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		}

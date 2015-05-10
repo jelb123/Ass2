@@ -31,7 +31,7 @@ public class FindUserBids implements Command {
 			request.setAttribute("msg", msg);
 			return "/displayMsg.jsp";
 		}
-	
+		String msg = null;
 		try {
 			UserBean user = (UserBean) request.getSession().getAttribute("user");
 			int id = user.getId();
@@ -45,11 +45,19 @@ public class FindUserBids implements Command {
 			} else {
 				items = allItems;
 			}
+			if (items == null || items.isEmpty()) {
+				msg = "You have not bid on anything";
+			} else {
+				msg = "Items you have bidded on: ";
+			}
 			
+			request.setAttribute("msg", msg);
 			request.setAttribute("items", items);
 			return "/welcome.jsp";
 			
 		} catch(ItemServiceException e) {
+			msg = "Cant display item bids";
+			request.setAttribute("msg", msg);
 			e.printStackTrace();
 			return "/welcome.jsp";
 		}

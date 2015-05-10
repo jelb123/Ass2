@@ -14,7 +14,7 @@
 	<jsp:include page="includes/header.jsp" />
 	<div class="container">
 		
-			<h3><b> User profile </b></h3>
+		<h3><b> ${account.username}'s profile </b></h3>
 		<br> </br>
 					
 		<div class="col-md-9" style="margin-left: 10px;">
@@ -34,7 +34,7 @@
                         <div class="details-column">
 							${account.dateOfBirth}
                         </div>
-	                    <c:if test="${user.isAdmin != true}">
+	                    <c:if test="${user.isAdmin != true || user.id == account.id}">
 	                        <h4>
 	                             Credit card number:
 	                        </h4>
