@@ -74,7 +74,7 @@ public class AuctionTask implements Runnable{
 						String toOwner = ownerEmail;
 						String url = "http://localhost:8080/Ass2/dispatcher";
 						String subject = "Your auction has ended!";
-						String text = "Your auction has ended but reserve hasnt benn met for item: \n" 
+						String text = "Your auction has ended but reserve hasnt been met for item: \n" 
 								+ url + "?operation=browseitem&item=" + item.getItemID()
 								+ "\n\n The winner was: " + winner.getUsername() 
 								+ " with a bid of: " + item.getHighestBid()

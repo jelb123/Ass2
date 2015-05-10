@@ -85,16 +85,6 @@ public class AddItemCommand implements Command {
 			Timestamp endTime = new Timestamp(cal.getTime().getTime());
 			item.setEndTime(endTime);
 			
-			//item.setEndTime(auctionTime);	//TEMPORARY
-			
-			/*
-			private int itemID;
-			private int ownerID;
-			
-			private float highestBid;
-			private int highestBidUserID;
-			*/
-			
 			itemDAO.insert(item);
 			request.setAttribute("msg", "Item Added Successfully");
 			return "/itemAdded.jsp";
